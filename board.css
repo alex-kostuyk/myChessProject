@@ -35,10 +35,7 @@ table{
    border-collapse: collapse;
    border: 0px;
 }
-td{
-   max-width: 12.5%;
-   max-height: 15px;
-}
+
 
 #black{
     background-color: #769656;

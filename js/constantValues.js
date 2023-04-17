@@ -46,5 +46,15 @@ const START_BOARD =
 ];
 
 const TABLE_ID = "tableBoard";
-const SELECTED_WHITE_CELL_COLOR = '#F7F769';
-const SELECTED_BLACK_CELL_COLOR = '#BBCB2B';
+const BLACK_CELL_ID = "black";
+const WHITE_CELL_ID = "white";
+const CELL_COLORS = 
+{
+    white: {selected:'#F7F769', regular: '#EEEED2'},
+    black: {selected:'#BBCB2B', regular: '#769656'}
+};
+const TURN = 
+{
+    black: "black",
+    white: "white"
+};
