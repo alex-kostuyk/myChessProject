@@ -1,0 +1,56 @@
+body{
+    background-color:#312E2B ;
+    margin: 0;
+}
+.text{
+    color: white;
+    text-align: center;
+    font-size: 30pt;
+    margin: 0; 
+    padding-top: 20px;  
+}
+header {
+    height: 90px;
+    width: 100%;
+    background-color: #272522;
+    margin-top: 0;
+}
+.board{
+    width: 700px;
+    height:700px;
+    padding-top: 40px;
+    margin: auto;
+ 
+}
+.fit-picture{
+    height: 100px;
+    width: 100px;
+    
+    
+}
+table{
+   height: 100%;
+   width: 100%;
+   table-layout: fixed;
+   border-collapse: collapse;
+   border: 0px;
+}
+td{
+   max-width: 12.5%;
+   max-height: 15px;
+}
+
+#black{
+    background-color: #769656;
+}
+#white{
+    background-color: #EEEED2;
+}
+
+#black:hover{
+    background-color: #607a47;
+}
+
+#white:hover{
+    background-color: #d6d6c0;
+}
