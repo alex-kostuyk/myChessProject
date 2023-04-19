@@ -32,7 +32,11 @@ function OnCellDown(cell)
 
 function OnCellStartDrag(cell)
 {
-  
+    let dragFigure = activeBoard[cell.parentElement.rowIndex][cell.cellIndex];
+  if(getFigureType(dragFigure)!= turn)
+  {
+    event.preventDefault()
+  }
 }
 let dragOverCell=null;
 function OnCellDragOver(cell)
@@ -41,10 +45,10 @@ function OnCellDragOver(cell)
     if(cell !== dragOverCell)
     {
         if(dragOverCell !== null)
-        dragOverCell.classList.toggle("selectedCell");
+        dragOverCell.classList.toggle(DRAG_OVER_CELL_CLASS);
 
         dragOverCell = cell;
-        cell.classList.toggle("selectedCell");
+        cell.classList.toggle(DRAG_OVER_CELL_CLASS);
     }
     
 }
@@ -53,7 +57,7 @@ function OnCellDrop(cell)
 {   
    if(dragOverCell !== null)
    {
-    dragOverCell.classList.toggle("selectedCell");
+    dragOverCell.classList.toggle(DRAG_OVER_CELL_CLASS);
     dragOverCell = null;
    }
     OnCellDown(cell);

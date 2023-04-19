@@ -20,6 +20,11 @@ header {
     height:700px;
     padding-top: 40px;
     margin: auto;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
  
 }
 .fit-picture{
@@ -39,7 +44,6 @@ table{
     object-fit: fill;
     height: 100%;
    width: 100%;
-
 }
 
 #black{
@@ -52,3 +56,5 @@ table{
 .selectedCell{
     box-shadow:0px 0px 0px 4px #CFDAC4 inset;
 }
+
+
