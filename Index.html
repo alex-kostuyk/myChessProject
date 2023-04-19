@@ -4,103 +4,104 @@
     
 <head>
     <meta charset="UTF-8">
-    
+    <link rel="stylesheet" href="board.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chess.clown</title>
+    
+    <link rel="icon" href="https://em-content.zobj.net/thumbs/160/apple/354/clown-face_1f921.png">
 </head>
 <header>
    <h1 class="text">🤡 Chess.clown</h1>
 </header>
 <body>
+    <h1 class="text" id = "turn">white</h1>
     <div class="board">
-
-    
    <table id = "tableBoard">
     <tr>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
     <tr>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
-        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" draggable="true" ondragstart="OnCellDrag(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="black" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
+        <td class = "cell" id="white" onmousedown ="OnCellDown(this)" ondragstart="OnCellStartDrag(this)" ondragover = "OnCellDragOver(this)" ondrop = "OnCellDrop(this)"></td>
     </tr>
    </table>
    </div>
 
    
-   <link rel="stylesheet" href="board.css">
+   
    <script src="js/constantValues.js"></script>
    <script src="js/objects.js"></script>
    <script src="js/game.js"></script>

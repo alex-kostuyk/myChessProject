@@ -35,7 +35,12 @@ table{
    border-collapse: collapse;
    border: 0px;
 }
+.chessFigure{
+    object-fit: fill;
+    height: 100%;
+   width: 100%;
 
+}
 
 #black{
     background-color: #769656;
@@ -44,10 +49,6 @@ table{
     background-color: #EEEED2;
 }
 
-#black:hover{
-    background-color: #607a47;
-}
-
-#white:hover{
-    background-color: #d6d6c0;
+.selectedCell{
+    box-shadow:0px 0px 0px 4px #CFDAC4 inset;
 }

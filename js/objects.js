@@ -21,6 +21,23 @@ let selectedFigure =
     }
 };
 
+function LastMove(from,to)
+{
+    this.from = 
+    {
+        row: from[0],
+        colum: from[1]
+    };
+    this.to = {
+        row: to[0],
+        colum: to[1]
+    };
+    this.intersects= function (row, colum){
+        return this.from.row == row && this.from.colum ==colum||this.to.row == row && this.to.colum ==colum;
+    };
+  
+}
+
 let getFigureType = function(figure)
 {
     if(figure == CHESS_FIGURE.empty || figure == CHESS_FIGURE.posibleMove)

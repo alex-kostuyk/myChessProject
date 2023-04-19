@@ -48,6 +48,7 @@ const START_BOARD =
 const TABLE_ID = "tableBoard";
 const BLACK_CELL_ID = "black";
 const WHITE_CELL_ID = "white";
+const TURN_TEXT_ID = "turn";
 const CELL_COLORS = 
 {
     white: {selected:'#F7F769', regular: '#EEEED2'},
