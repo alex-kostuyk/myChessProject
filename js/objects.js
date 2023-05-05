@@ -38,7 +38,7 @@ function LastMove(from,to)
   
 }
 
-let getFigureType = function(figure)
+let getFigureColor = function(figure)
 {
     if(figure == CHESS_FIGURE.empty || figure == CHESS_FIGURE.posibleMove)
     return figure;

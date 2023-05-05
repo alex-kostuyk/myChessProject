@@ -8,6 +8,10 @@ const CHESS_FIGURE =
     {
         pawn: 'blackPawn', knight: 'blackKnight',bishop: 'blackBishop',rook: 'blackRook', queen: 'blackQueen',king: 'blackKing' 
     },
+    colorless:
+    {
+        pawn: 'Pawn', knight: 'Knight',bishop: 'Bishop',rook: 'Rook', queen: 'Queen',king: 'King' 
+    },
     empty: 'empty',
     posibleMove: 'posibleMove'
 };
