@@ -95,13 +95,13 @@ function SelectFigure(cell, row, colum)
 function ShowPosibleMoves()
 {
   
-    UpdateBackgroundCss("background-image: url("+IMAGE_RELETION[CHESS_FIGURE.posibleMove]+"); background-size: contain;",GetPosibleMoves(activeBoard,selectedFigure));
+    UpdateBackgroundCss(false,GetPosibleMoves(activeBoard,selectedFigure));
     
 }
 
 function ClearPosibleMoves()
 {
-    UpdateBackgroundCss("",GetPosibleMoves(activeBoard,selectedFigure));
+    UpdateBackgroundCss(true,GetPosibleMoves(activeBoard,selectedFigure));
 }
 
 
@@ -144,11 +144,13 @@ function UpdateView(boardArray)
     
 }
 
-function UpdateBackgroundCss(cssText,points)
+function UpdateBackgroundCss(clear,points)
 {
+    let imgLink;
     for(let i = 0; i<points.length; i++)
     {
-         boardTableView.rows[points[i][0]].cells[points[i][1]].style.cssText = cssText;
+        imgLink = activeBoard[points[i][0]][points[i][1]]===CHESS_FIGURE.empty?IMAGE_RELETION[CHESS_FIGURE.posibleMove]:IMAGE_RELETION[CHESS_FIGURE.posibleMoveHit];
+         boardTableView.rows[points[i][0]].cells[points[i][1]].style.cssText =clear?"":"background-image: url("+imgLink+"); background-size: contain;";
     }
 }
 

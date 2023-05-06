@@ -8,16 +8,7 @@ function GetPosibleMoves(board, figurePosition)
     {
         case CHESS_FIGURE.colorless.pawn:
                 const direction = color == TURN.white ? -1 : 1;
-      // Check if the pawn can move one square forward
-      if (board[figurePosition.row + direction][figurePosition.colum] == CHESS_FIGURE.empty) {
-        posibleMoves.push([figurePosition.row + direction, figurePosition.colum]);
-      }
-      // Check if the pawn can move two squares forward from its starting position
-      if ((color == TURN.white && figurePosition.row == 6) || (color == TURN.black && figurePosition.row == 1)) {
-        if (board[figurePosition.row + direction * 2][figurePosition.colum] == CHESS_FIGURE.empty) {
-          posibleMoves.push([figurePosition.row + direction * 2, figurePosition.colum]);
-        }
-      }
+      
       // Check if the pawn can capture diagonally
       let leftColumn = figurePosition.colum - 1;
       let rightColumn = figurePosition.colum + 1;
@@ -31,6 +22,19 @@ function GetPosibleMoves(board, figurePosition)
         let rightCell = board[figurePosition.row + direction][rightColumn];
         if (getFigureColor(rightCell) != color && getFigureColor(rightCell) != CHESS_FIGURE.empty) {
           posibleMoves.push([figurePosition.row + direction,rightColumn]);
+        }
+      }
+      // Check if the pawn can move one square forward
+      if (board[figurePosition.row + direction][figurePosition.colum] == CHESS_FIGURE.empty) {
+        posibleMoves.push([figurePosition.row + direction, figurePosition.colum]);
+      }
+      else{
+        return posibleMoves;
+      }
+      // Check if the pawn can move two squares forward from its starting position
+      if ((color == TURN.white && figurePosition.row == 6) || (color == TURN.black && figurePosition.row == 1)) {
+        if (board[figurePosition.row + direction * 2][figurePosition.colum] == CHESS_FIGURE.empty) {
+          posibleMoves.push([figurePosition.row + direction * 2, figurePosition.colum]);
         }
       }
             break;
