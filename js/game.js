@@ -4,6 +4,7 @@ let boardTableView;
 let lastMove = null;
 let dragOverCell=null;
 let turnText;
+let allMoves=[];
 Init()
 function Init()
 {
@@ -118,7 +119,7 @@ function MakeMove(row, colum)
         boardTableView.rows[lastMove.to.row].cells[lastMove.to.colum].style.backgroundColor = boardTableView.rows[lastMove.to.row].cells[lastMove.to.colum].id  == BLACK_CELL_ID? CELL_COLORS.black.regular : CELL_COLORS.white.regular;
     }
     lastMove = new LastMove([selectedFigure.row,selectedFigure.colum],[row,colum]);
-
+    allMoves.push(lastMove);
     turn = turn == TURN.white? TURN.black : TURN.white;
 
 
