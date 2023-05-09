@@ -50,7 +50,7 @@ const START_BOARD =
     [CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn],
     [CHESS_FIGURE.white.rook,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.queen,CHESS_FIGURE.white.king,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.rook]
 ];
-
+const BOARD_CONTAINER = document.querySelector('.board');
 const TABLE_ID = "tableBoard";
 const DRAG_OVER_CELL_CLASS = "selectedCell";
 const BLACK_CELL_ID = "black";

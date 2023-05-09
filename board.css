@@ -16,8 +16,7 @@ header {
     margin-top: 0;
 }
 .board{
-    width: 35%;
-    aspect-ratio: 1 / 1;
+    width: 40%;
     margin: auto;
     user-select: none;
     -moz-user-select: none;
@@ -54,6 +53,6 @@ table{
 
 @media screen and (orientation:portrait) {
     .board{
-        width: 90%;
+        width: 100%;
     }
  }

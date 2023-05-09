@@ -8,7 +8,6 @@ let allMoves=[];
 Init()
 function Init()
 {
-
     boardTableView = document.getElementById(TABLE_ID);
     turnText = document.getElementById(TURN_TEXT_ID);
     UpdateView(START_BOARD);
@@ -132,7 +131,7 @@ function UpdateView(boardArray)
     for (let i = 0; i < boardTableView.rows.length; i++) {
         for (let j = 0; j < boardTableView.rows[i].cells.length; j++)
          
-        boardTableView.rows[i].cells[j].innerHTML = "<img src="+IMAGE_RELETION[boardArray[i][j]] +" class='chessFigure' draggable/>"; 
+        boardTableView.rows[i].cells[j].style.cssText =  "background-image: url("+IMAGE_RELETION[activeBoard[i][j]]+"); background-size: cover;";
     }
 
     if(lastMove!=null)
@@ -151,7 +150,7 @@ function UpdateBackgroundCss(clear,points)
     for(let i = 0; i<points.length; i++)
     {
         imgLink = activeBoard[points[i][0]][points[i][1]]===CHESS_FIGURE.empty?IMAGE_RELETION[CHESS_FIGURE.posibleMove]:IMAGE_RELETION[CHESS_FIGURE.posibleMoveHit];
-         boardTableView.rows[points[i][0]].cells[points[i][1]].style.cssText =clear?"":"background-image: url("+imgLink+"); background-size: contain;";
+         boardTableView.rows[points[i][0]].cells[points[i][1]].style.cssText =clear?"background-image: url("+IMAGE_RELETION[activeBoard[points[i][0]][points[i][1]]]+"); background-size: cover;":"background-image: url("+IMAGE_RELETION[activeBoard[points[i][0]][points[i][1]]]+"),url("+imgLink+"); background-size: cover;";
     }
 }
 
