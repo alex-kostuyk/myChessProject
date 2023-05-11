@@ -123,8 +123,11 @@ function MakeMove(row, colum)
     allMoves.push(lastMove);
     turn = turn == TURN.white? TURN.black : TURN.white;
 
-
     UpdateView(activeBoard);
+    if(IsCheckMate(activeBoard,turn))
+    {  
+        alert(turn == TURN.white? TURN.black : TURN.white + " player wins")
+    }
 }
 
 function UpdateView(boardArray)

@@ -60,7 +60,7 @@ function GetBoardWithMove(board,figurePosition,move)
     }
     boardWithMove.push(innerArray);
   }
-  boardWithMove[move[0]][move[1]] = figurePosition.type;
+  boardWithMove[move[0]][move[1]] = board[figurePosition.row][figurePosition.colum];
   boardWithMove[figurePosition.row][figurePosition.colum] = CHESS_FIGURE.empty;
 
    return boardWithMove;
@@ -253,4 +253,30 @@ function getRookMoves(board, figurePosition, color) {
       }
       return moves;
 }
+}
+
+function IsCheckMate(board,color)
+{
+    if(!IsCheck(board,color))
+      return false;
+
+      for (let row = 0; row < 8; row++) {
+        for (let colum = 0; colum < 8; colum++) {
+          let figure = board[row][colum];
+          if (getFigureColor(figure) == color && figure.split(/(?=[A-Z])/)[1] !== CHESS_FIGURE.empty) {
+            let possibleMoves = GetAllPosibleMoves(board, { row, colum });
+
+            for (let i = 0; i < possibleMoves.length; i++) {
+              let move = possibleMoves[i];
+
+              if (!IsCheck(GetBoardWithMove(board,{ row, colum },move),color)) {
+                return false;
+             }
+            }
+          }
+        }
+      }
+      
+      
+      return true;
 }

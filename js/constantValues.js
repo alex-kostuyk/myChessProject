@@ -21,7 +21,7 @@ const IMAGE_RELETION =
     {
         'empty': 'https://cdn.discordapp.com/attachments/730141789490512005/1104384774367367208/empty.png',
         'posibleMove': 'https://cdn.discordapp.com/attachments/730141789490512005/1104384774635798619/posibleMove.png',
-        'posibleMoveHit': 'https://cdn.discordapp.com/attachments/730141789490512005/1104384775034261564/posibleMoveHit.png',
+        'posibleMoveHit': 'https://cdn.discordapp.com/attachments/730141789490512005/1106022312018448495/posibleMoveHit.png',
         //black
         'blackPawn': 'https://www.chess.com/chess-themes/pieces/neo/150/bp.png',
         'blackKnight': 'https://www.chess.com/chess-themes/pieces/neo/150/bn.png',
