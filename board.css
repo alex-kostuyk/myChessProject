@@ -9,12 +9,7 @@ body{
     margin: 0; 
     padding-top: 20px;  
 }
-header {
-    height: 90px;
-    width: 100%;
-    background-color: #272522;
-    margin-top: 0;
-}
+
 .board{
     width: 40%;
     margin: auto;
