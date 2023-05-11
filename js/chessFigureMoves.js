@@ -3,6 +3,16 @@ function GetPosibleMoves(board, figurePosition)
     let allPosibleMoves = GetAllPosibleMoves(board, figurePosition);
     let posibleMoves = [];
     let color= getFigureColor(figurePosition.type);
+
+    if(figurePosition.type.split(/(?=[A-Z])/)[1] === CHESS_FIGURE.colorless.king)
+    {
+      castleMove = getCastleMove(board,figurePosition,color);
+      castleMove.forEach(move=>{
+            allPosibleMoves.push(move);
+      });
+    }
+      
+
     allPosibleMoves.forEach((move) => {
       if(!IsCheck(GetBoardWithMove(board,figurePosition,move),color))
         posibleMoves.push(move);
@@ -105,6 +115,11 @@ function GetAllPosibleMoves(board, figurePosition)
           posibleMoves.push([figurePosition.row + direction * 2, figurePosition.colum]);
         }
       }
+      if(isEnPassant(activeBoard,selectedFigure))
+      {
+          enPassantMove = [lastMove.to.row + (TURN.white ? -1 : 1),lastMove.to.colum]
+          posibleMoves.push(enPassantMove);
+      }
             break;
         
         case CHESS_FIGURE.colorless.knight:
@@ -177,7 +192,7 @@ function GetAllPosibleMoves(board, figurePosition)
             posibleMoves.push([newRow,newColum]);
           }
         }
-      }
+      }      
             break;       
     }
     return posibleMoves;
@@ -253,7 +268,76 @@ function getRookMoves(board, figurePosition, color) {
       }
       return moves;
 }
+
 }
+function getCastleMove(board, figurePosition,color) {
+    const row = color === TURN.white ?  7:0;
+    let leftRookMoved = false;
+    let rightRookMoved = false;
+    moves = [];
+
+
+
+    for (let i = 0; i < allMoves.length; i++) {
+      if(allMoves[i].type===figurePosition.type)
+      {
+       return [];
+      }
+       
+       if(allMoves[i].from.row == row && allMoves[i].type == CHESS_FIGURE.white.rook)
+       {
+         if(allMoves[i].from.colum == 0)leftRookMoved = true;
+         if(allMoves[i].from.colum == 7)rightRookMoved = true;
+       }
+      }
+
+    if(!rightRookMoved)
+    {
+      let isPathClear = true;
+      for (let i = 5; i < 7; i++) {
+        if (board[row][i] !== CHESS_FIGURE.empty) {
+          isPathClear = false;
+          break;
+        }
+      }
+      if(isPathClear)
+      {
+        moves.push([row,6]);
+      }
+    }
+
+    if(!leftRookMoved)
+    {
+      let isPathClear = true;
+      for (let i = 1; i < 4; i++) {
+        if (board[row][i] !== CHESS_FIGURE.empty) {
+          isPathClear = false;
+          break;
+        }
+      }
+      if(isPathClear)
+      {
+        moves.push([row,2]);
+      }
+    }
+    return moves;
+
+}
+
+function isEnPassant(board, pawnPosition) {
+
+  if (lastMove===null)
+    return false;
+
+  let lastMoveFigure = board[lastMove.to.row][lastMove.to.colum]
+
+  if (lastMoveFigure.split(/(?=[A-Z])/)[1]==CHESS_FIGURE.colorless.pawn &&Math.abs(lastMove.to.row - lastMove.from.row)===2 && Math.abs(lastMove.to.colum - pawnPosition.colum)===1&&lastMove.to.row == pawnPosition.row){
+    return true; 
+  }
+  return false;
+}
+
+
 
 function IsCheckMate(board,color)
 {

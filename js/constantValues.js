@@ -23,20 +23,20 @@ const IMAGE_RELETION =
         'posibleMove': 'https://cdn.discordapp.com/attachments/730141789490512005/1104384774635798619/posibleMove.png',
         'posibleMoveHit': 'https://cdn.discordapp.com/attachments/730141789490512005/1106022312018448495/posibleMoveHit.png',
         //black
-        'blackPawn': 'https://www.chess.com/chess-themes/pieces/neo/150/bp.png',
-        'blackKnight': 'https://www.chess.com/chess-themes/pieces/neo/150/bn.png',
-        'blackBishop': 'https://www.chess.com/chess-themes/pieces/neo/150/bb.png',
-        'blackRook': 'https://www.chess.com/chess-themes/pieces/neo/150/br.png',
-        'blackQueen': 'https://www.chess.com/chess-themes/pieces/neo/150/bq.png',
-        'blackKing': 'https://www.chess.com/chess-themes/pieces/neo/150/bk.png',
+        'blackPawn': 'https://cdn.discordapp.com/attachments/730141789490512005/1106268783066235020/bp.png',
+        'blackKnight': 'https://cdn.discordapp.com/attachments/730141789490512005/1106268782181224508/bn.png',
+        'blackBishop': 'https://cdn.discordapp.com/attachments/730141789490512005/1106268782411923486/bb.png',
+        'blackRook': 'https://cdn.discordapp.com/attachments/730141789490512005/1106268360792092713/br.png',
+        'blackQueen': 'https://cdn.discordapp.com/attachments/730141789490512005/1106268782856507432/bq.png',
+        'blackKing': 'https://cdn.discordapp.com/attachments/730141789490512005/1106268782630019102/bk.png',
 
         //white
-        'whitePawn': 'https://www.chess.com/chess-themes/pieces/neo/150/wp.png',
-        'whiteKnight': 'https://www.chess.com/chess-themes/pieces/neo/150/wn.png',
-        'whiteBishop': 'https://www.chess.com/chess-themes/pieces/neo/150/wb.png',
-        'whiteRook': 'https://www.chess.com/chess-themes/pieces/neo/150/wr.png',
-        'whiteQueen': 'https://www.chess.com/chess-themes/pieces/neo/150/wq.png',
-        'whiteKing': 'https://www.chess.com/chess-themes/pieces/neo/150/wk.png'
+        'whitePawn': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png',
+        'whiteKnight': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270036408148008/wn.png',
+        'whiteBishop': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270036634636378/wb.png',
+        'whiteRook': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270036118737038/wr.png',
+        'whiteQueen': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270036835967137/wq.png',
+        'whiteKing': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270037091827732/wk.png'
     }
     
 const START_BOARD = 
@@ -58,8 +58,8 @@ const WHITE_CELL_ID = "white";
 const TURN_TEXT_ID = "turn";
 const CELL_COLORS = 
 {
-    white: {selected:'#F7F769', regular: '#EEEED2'},
-    black: {selected:'#BBCB2B', regular: '#769656'}
+    white: {selected:'#F7FD9D', regular: '#EAEDDC'},
+    black: {selected:'#CCCE60', regular: '#4E6B93'}
 };
 const TURN = 
 {

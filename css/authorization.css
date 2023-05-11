@@ -10,7 +10,7 @@ a:hover {
 	text-decoration: none;
 }
 .link {
-  color: white;
+  color: #2E86CC;
 }
 .link:hover {
   color: #c4c3ca;
@@ -49,7 +49,7 @@ display: none;
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: white;
+  background-color: #2E86CC;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -95,7 +95,6 @@ display: none;
   width: 100%;
   height: 100%;
   background-color: #272522;
-  background-image: url('/img/pattern_japanese-pattern-2_1_2_0-0_0_1__ffffff00_000000.png');
   position: absolute;
   border-radius: 6px;
   -webkit-transform-style: preserve-3d;
@@ -171,11 +170,46 @@ display: none;
   display: -ms-inline-flexbox;
   display: inline-flex;
   align-items: center;
-  background-color: white;
-  color: #000000;
+  background-color: black;
+  color: white;
 }
 .btn:hover{  
-  background-color: #000000;
-  color: white;
+  background-color: white;
+  color: black;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.btnBack{
+  position:absolute;
+  padding-left: 7px;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 30pt;
+  transform: rotate(45deg);
+  
+}
+#mobile{
+  left: -25px;
+  top: -280px;
+}
+
+#pc{
+  left: 20px;
+}
+
+@media screen and (orientation:portrait) {
+  #mobile{
+    display: block;
+  }
+  #pc{
+    display: none;
+  }
+}
+@media screen and (orientation:landscape) {
+  #mobile{
+    display: none;
+  }
+  #pc{
+    display: block;
+  }
 }

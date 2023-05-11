@@ -21,7 +21,7 @@ let selectedFigure =
     }
 };
 
-function LastMove(from,to)
+function LastMove(from,to,type)
 {
     this.from = 
     {
@@ -32,6 +32,7 @@ function LastMove(from,to)
         row: to[0],
         colum: to[1]
     };
+    this.type = type;
     this.intersects= function (row, colum){
         return this.from.row == row && this.from.colum ==colum||this.to.row == row && this.to.colum ==colum;
     };
@@ -49,5 +50,8 @@ let getFigureColor = function(figure)
 }
 
 function hasSameRow(arr, row) {
-    return arr.some(r => r.every((v, i) => v === row[i]));
+    if(arr!=null&&row!=null)
+        return arr.some(r => r.every((v, i) => v === row[i]));
+
+     return false;
   }
