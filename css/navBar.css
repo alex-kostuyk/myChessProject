@@ -10,7 +10,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
+.container ,.containerLogIn{
   width: 100%;
   margin: auto;
 }
@@ -147,6 +147,7 @@ body {
 .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
   transform: rotate(-45deg);
 }
+
 
 @media screen and (orientation:landscape) { 
     .navbar .menu-items {
