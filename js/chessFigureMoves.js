@@ -1,5 +1,73 @@
 function GetPosibleMoves(board, figurePosition)
 {
+    let allPosibleMoves = GetAllPosibleMoves(board, figurePosition);
+    let posibleMoves = [];
+    let color= getFigureColor(figurePosition.type);
+    allPosibleMoves.forEach((move) => {
+      if(!IsCheck(GetBoardWithMove(board,figurePosition,move),color))
+        posibleMoves.push(move);
+    });
+
+    return posibleMoves;
+}
+
+function IsCheck(board,color)
+{
+    let kingPosition = null;
+    
+    // Find the position of the king of the given color
+    for (let row = 0; row < 8; row++) {
+      for (let colum = 0; colum < 8; colum++) {
+        let figure = board[row][colum];
+        if (getFigureColor(figure) === color && figure.split(/(?=[A-Z])/)[1] === CHESS_FIGURE.colorless.king) {
+          kingPosition = { row, colum };
+          break;
+        }
+      }
+      if (kingPosition !== null) {
+        break;
+      }
+    }
+    
+    // Check if any enemy figure can attack the king
+    for (let row = 0; row < 8; row++) {
+      for (let colum = 0; colum < 8; colum++) {
+        let figure = board[row][colum];
+        if (getFigureColor(figure) !== color && figure.split(/(?=[A-Z])/)[1] !== CHESS_FIGURE.empty) {
+          let possibleMoves = GetAllPosibleMoves(board, { row, colum });
+          for (let i = 0; i < possibleMoves.length; i++) {
+            let move = possibleMoves[i];
+            if (move[0] === kingPosition.row && move[1] === kingPosition.colum) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+    
+    // If no enemy figure can attack the king, return false
+    return false;
+}
+
+function GetBoardWithMove(board,figurePosition,move)
+{
+   let boardWithMove = [];
+
+   for(let i = 0; i < board.length; i++) {
+    let innerArray = [];
+    for(let j = 0; j < board[i].length; j++) {
+      innerArray.push(board[i][j]);
+    }
+    boardWithMove.push(innerArray);
+  }
+  boardWithMove[move[0]][move[1]] = figurePosition.type;
+  boardWithMove[figurePosition.row][figurePosition.colum] = CHESS_FIGURE.empty;
+
+   return boardWithMove;
+}
+
+function GetAllPosibleMoves(board, figurePosition)
+{
     let posibleMoves = [];
     let figure = board[figurePosition.row][figurePosition.colum].split(/(?=[A-Z])/);
     let color = figure[0];
@@ -113,8 +181,7 @@ function GetPosibleMoves(board, figurePosition)
             break;       
     }
     return posibleMoves;
-}
-function getBishopMoves(board, figurePosition, color) {
+    function getBishopMoves(board, figurePosition, color) {
     const bishopMoves = [
         { row: 1, colum: 1 },
         { row: 1, colum: -1 },
@@ -185,4 +252,5 @@ function getRookMoves(board, figurePosition, color) {
         }
       }
       return moves;
+}
 }

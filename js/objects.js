@@ -47,3 +47,7 @@ let getFigureColor = function(figure)
 
     return isBlack?BLACK_CELL_ID:WHITE_CELL_ID;
 }
+
+function hasSameRow(arr, row) {
+    return arr.some(r => r.every((v, i) => v === row[i]));
+  }

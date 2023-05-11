@@ -5,9 +5,11 @@ let lastMove = null;
 let dragOverCell=null;
 let turnText;
 let allMoves=[];
+let posibleMoves = null;
 Init()
 function Init()
 {
+    BOARD_CONTAINER.style.height = BOARD_CONTAINER.offsetWidth + 'px';
     boardTableView = document.getElementById(TABLE_ID);
     turnText = document.getElementById(TURN_TEXT_ID);
     UpdateView(START_BOARD);
@@ -22,7 +24,7 @@ function OnCellDown(cell)
     if(getFigureColor(activeBoard[row][colum]) != turn && getFigureColor(selectedFigure.type) == turn)
     {
 
-        if(JSON.stringify(GetPosibleMoves(activeBoard,selectedFigure)).includes([row,colum]))
+        if(hasSameRow(posibleMoves,[row,colum]))
         {
             ClearPosibleMoves();
             MakeMove(row,colum);
@@ -94,14 +96,14 @@ function SelectFigure(cell, row, colum)
 
 function ShowPosibleMoves()
 {
-  
-    UpdateBackgroundCss(false,GetPosibleMoves(activeBoard,selectedFigure));
+   posibleMoves = GetPosibleMoves(activeBoard,selectedFigure);
+    UpdateBackgroundCss(false,posibleMoves);
     
 }
 
 function ClearPosibleMoves()
 {
-    UpdateBackgroundCss(true,GetPosibleMoves(activeBoard,selectedFigure));
+    UpdateBackgroundCss(true,posibleMoves);
 }
 
 
