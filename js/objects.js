@@ -55,3 +55,7 @@ function hasSameRow(arr, row) {
 
      return false;
   }
+function getFigureType(type)
+{
+    return type.split(/(?=[A-Z])/)[1];
+}

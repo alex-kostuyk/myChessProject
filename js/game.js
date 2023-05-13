@@ -49,7 +49,7 @@ function MakeMove(row, colum)
 {
     if(enPassantMove!=null&&enPassantMove[0]==row&&enPassantMove[1]==colum)
     {
-        activeBoard[row+ (TURN.white ? 1 : -1)][colum] = CHESS_FIGURE.empty;
+        activeBoard[row+ (turn == TURN.white ? 1 : -1)][colum] = CHESS_FIGURE.empty;
     }
     if(castleMove!=null&& castleMove!=[])
     {
@@ -61,6 +61,7 @@ function MakeMove(row, colum)
             }
       });
     }
+    //if()
     activeBoard[row][colum] = activeBoard[selectedFigure.row][selectedFigure.colum];
     activeBoard[selectedFigure.row][selectedFigure.colum] = CHESS_FIGURE.empty;
 

@@ -4,14 +4,18 @@ function GetPosibleMoves(board, figurePosition)
     let posibleMoves = [];
     let color= getFigureColor(figurePosition.type);
 
-    if(figurePosition.type.split(/(?=[A-Z])/)[1] === CHESS_FIGURE.colorless.king)
+    if(getFigureType(figurePosition.type) === CHESS_FIGURE.colorless.king && !IsCheck(board,color))
     {
       castleMove = getCastleMove(board,figurePosition,color);
       castleMove.forEach(move=>{
             allPosibleMoves.push(move);
       });
     }
-      
+    if(isEnPassant(activeBoard,selectedFigure))
+    {
+        enPassantMove = [lastMove.to.row + (color == TURN.white ? -1 : 1),lastMove.to.colum]
+        posibleMoves.push(enPassantMove);
+    }
 
     allPosibleMoves.forEach((move) => {
       if(!IsCheck(GetBoardWithMove(board,figurePosition,move),color))
@@ -29,7 +33,7 @@ function IsCheck(board,color)
     for (let row = 0; row < 8; row++) {
       for (let colum = 0; colum < 8; colum++) {
         let figure = board[row][colum];
-        if (getFigureColor(figure) === color && figure.split(/(?=[A-Z])/)[1] === CHESS_FIGURE.colorless.king) {
+        if (getFigureColor(figure) === color && getFigureType(figure) === CHESS_FIGURE.colorless.king) {
           kingPosition = { row, colum };
           break;
         }
@@ -43,7 +47,7 @@ function IsCheck(board,color)
     for (let row = 0; row < 8; row++) {
       for (let colum = 0; colum < 8; colum++) {
         let figure = board[row][colum];
-        if (getFigureColor(figure) !== color && figure.split(/(?=[A-Z])/)[1] !== CHESS_FIGURE.empty) {
+        if (getFigureColor(figure) !== color && getFigureType(figure) !== CHESS_FIGURE.empty) {
           let possibleMoves = GetAllPosibleMoves(board, { row, colum });
           for (let i = 0; i < possibleMoves.length; i++) {
             let move = possibleMoves[i];
@@ -79,10 +83,10 @@ function GetBoardWithMove(board,figurePosition,move)
 function GetAllPosibleMoves(board, figurePosition)
 {
     let posibleMoves = [];
-    let figure = board[figurePosition.row][figurePosition.colum].split(/(?=[A-Z])/);
-    let color = figure[0];
+    let figure = getFigureType(board[figurePosition.row][figurePosition.colum]);
+    let color = getFigureColor(board[figurePosition.row][figurePosition.colum]);
     
-    switch(figure[1])
+    switch(figure)
     {
         case CHESS_FIGURE.colorless.pawn:
                 const direction = color == TURN.white ? -1 : 1;
@@ -114,11 +118,6 @@ function GetAllPosibleMoves(board, figurePosition)
         if (board[figurePosition.row + direction * 2][figurePosition.colum] == CHESS_FIGURE.empty) {
           posibleMoves.push([figurePosition.row + direction * 2, figurePosition.colum]);
         }
-      }
-      if(isEnPassant(activeBoard,selectedFigure))
-      {
-          enPassantMove = [lastMove.to.row + (TURN.white ? -1 : 1),lastMove.to.colum]
-          posibleMoves.push(enPassantMove);
       }
             break;
         
@@ -331,14 +330,11 @@ function isEnPassant(board, pawnPosition) {
 
   let lastMoveFigure = board[lastMove.to.row][lastMove.to.colum]
 
-  if (lastMoveFigure.split(/(?=[A-Z])/)[1]==CHESS_FIGURE.colorless.pawn &&Math.abs(lastMove.to.row - lastMove.from.row)===2 && Math.abs(lastMove.to.colum - pawnPosition.colum)===1&&lastMove.to.row == pawnPosition.row){
+  if (getFigureType(lastMoveFigure)==CHESS_FIGURE.colorless.pawn &&Math.abs(lastMove.to.row - lastMove.from.row)===2 && Math.abs(lastMove.to.colum - pawnPosition.colum)===1&&lastMove.to.row == pawnPosition.row){
     return true; 
   }
   return false;
 }
-
-
-
 function IsCheckMate(board,color)
 {
     if(!IsCheck(board,color))
@@ -347,7 +343,7 @@ function IsCheckMate(board,color)
       for (let row = 0; row < 8; row++) {
         for (let colum = 0; colum < 8; colum++) {
           let figure = board[row][colum];
-          if (getFigureColor(figure) == color && figure.split(/(?=[A-Z])/)[1] !== CHESS_FIGURE.empty) {
+          if (getFigureColor(figure) == color &&  getFigureType(figure) !== CHESS_FIGURE.empty) {
             let possibleMoves = GetAllPosibleMoves(board, { row, colum });
 
             for (let i = 0; i < possibleMoves.length; i++) {
