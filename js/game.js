@@ -3,15 +3,16 @@ let turnText,popUPText;
 let enPassantMove = null;
 let castleMove = null;
 let allMoves=[];
+let eatenPieces = [];
 let posibleMoves = null;
 Init()
 function Init()
-{
-    BOARD_CONTAINER.style.height = BOARD_CONTAINER.offsetWidth + 'px';
+{  
     boardTableView = document.getElementById(TABLE_ID);
     turnText = document.getElementById(TURN_TEXT_ID);
     popUPText = document.getElementById(POPUP_WINDOW_HEADER_TEXT_ID);
     UpdateView(START_BOARD);
+    windowResize();
 }
 
 async function OnCellDown(cell)
@@ -29,6 +30,8 @@ async function OnCellDown(cell)
             await MakeMove(row,colum);
             UpdateView(activeBoard);
             
+            UpdateEatenPiecesView();
+
             if(IsStalemate(activeBoard,turn))
             {
                 ActivatePopUp("draw")
@@ -60,7 +63,9 @@ async function MakeMove(row, colum)
 
     if(enPassantMove!=null&&enPassantMove[0]==row&&enPassantMove[1]==colum)
     {
-        activeBoard[row+ (turn == TURN.white ? 1 : -1)][colum] = CHESS_FIGURE.empty;
+        let pawnRow = row+ (turn == TURN.white ? 1 : -1);
+        eatenPieces.push(activeBoard[pawnRow][colum]);
+        activeBoard[pawnRow][colum] = CHESS_FIGURE.empty;
     }
     if(castleMove!=null&& castleMove.length != 0 && getFigureType(selectedFigure.type)==CHESS_FIGURE.colorless.king)
     {
@@ -71,6 +76,10 @@ async function MakeMove(row, colum)
                 activeBoard[row][colum + (colum>4? -1 : 1)] = turn + CHESS_FIGURE.colorless.rook;
             }
       });
+    }
+    if( activeBoard[row][colum]!=CHESS_FIGURE.empty)
+    {
+        eatenPieces.push(activeBoard[row][colum]);
     }
     activeBoard[row][colum] = activeBoard[selectedFigure.row][selectedFigure.colum];
     activeBoard[selectedFigure.row][selectedFigure.colum] = CHESS_FIGURE.empty;
@@ -158,4 +167,28 @@ function ActivatePopUp(message)
     POPUP_WINDOW.style.display = "flex";
     popUPText.textContent = message;
 
+}
+function UpdateEatenPiecesView()
+{
+    EATEN_PIECE_WHITE.innerHTML = '';
+    EATEN_PIECE_BLACK.innerHTML = '';
+
+    eatenPieces.sort((a, b) => PIECE_COST[getFigureType(b)] - PIECE_COST[getFigureType(a)]);
+
+    eatenPieces.forEach(piece =>{
+        var elem = document.createElement("img");
+            elem.setAttribute("src", IMAGE_RELETION[piece]);
+            elem.setAttribute("class", "eatenPieceImage");
+            
+        (getFigureColor(piece) == TURN.white?EATEN_PIECE_WHITE:EATEN_PIECE_BLACK).appendChild(elem);
+    })
+}
+
+function windowResize()
+{
+      BOARD_CONTAINER.style.height = BOARD_CONTAINER.offsetWidth + 'px';
+      POPUPS.forEach(popUP =>{
+            popUP.style.height = BOARD_CONTAINER.offsetWidth + 'px';
+            popUP.style.width = BOARD_CONTAINER.offsetWidth + 'px';
+      })
 }

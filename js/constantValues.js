@@ -38,6 +38,15 @@ const IMAGE_RELETION =
         'whiteQueen': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270036835967137/wq.png',
         'whiteKing': 'https://cdn.discordapp.com/attachments/730141789490512005/1106270037091827732/wk.png'
     }
+
+    const PIECE_COST =
+    {
+        'Pawn':1,
+        'Knight':3,
+        'Bishop':3,
+        'Rook':5,
+        'Queen':10 
+    }
     
 const START_BOARD = 
 [
@@ -50,9 +59,12 @@ const START_BOARD =
     [CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn],
     [CHESS_FIGURE.white.rook,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.queen,CHESS_FIGURE.white.king,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.rook]
 ];
+const EATEN_PIECE_WHITE = document.getElementById("whiteEatenPiece");
+const EATEN_PIECE_BLACK = document.getElementById("blackEatenPiece");
 const CHESS_PIECE_CHOISE = document.querySelector('.chessPieceChoice');
 const POPUP_WINDOW = document.querySelector('.popUPView');
 const BOARD_CONTAINER = document.querySelector('.board');
+const POPUPS = document.querySelectorAll('.popUPContainer');
 const POPUP_WINDOW_HEADER_TEXT_ID = 'popUPHeaderText';
 const TABLE_ID = "tableBoard";
 const DRAG_OVER_CELL_CLASS = "selectedCell";
