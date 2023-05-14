@@ -13,7 +13,7 @@ function Init()
     UpdateView(START_BOARD);
 }
 
-function OnCellDown(cell)
+async function OnCellDown(cell)
 {
     let row = cell.parentElement.rowIndex;
     let colum = cell.cellIndex;
@@ -25,18 +25,18 @@ function OnCellDown(cell)
         if(hasSameRow(posibleMoves,[row,colum]))
         {
             ClearPosibleMoves();
-            MakeMove(row,colum);
+            await MakeMove(row,colum);
             UpdateView(activeBoard);
-            if(IsCheckMate(activeBoard,turn))
-            {  
-                alert((turn == TURN.white? TURN.black : TURN.white) + " player wins")
-            }
             
             if(IsStalemate(activeBoard,turn))
             {
                 alert("draw")
             }
-
+            if(IsCheckMate(activeBoard,turn))
+            {  
+                alert((turn == TURN.white? TURN.black : TURN.white) + " player wins")
+            }
+            
             return;
         }
     }
@@ -50,8 +50,13 @@ function OnCellDown(cell)
 
 }
 
-function MakeMove(row, colum)
+async function MakeMove(row, colum)
 {
+    if(getFigureType(selectedFigure.type)==CHESS_FIGURE.colorless.pawn&&row == (turn==TURN.white?0:7))
+    {
+        activeBoard[selectedFigure.row][selectedFigure.colum] = await AskForRaisePawn();     
+    }
+
     if(enPassantMove!=null&&enPassantMove[0]==row&&enPassantMove[1]==colum)
     {
         activeBoard[row+ (turn == TURN.white ? 1 : -1)][colum] = CHESS_FIGURE.empty;

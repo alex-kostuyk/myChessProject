@@ -69,3 +69,26 @@ function UpdatePosibleMovesBackgroundCss(clear,points)
     UpdateLastMoveView();
 }
 
+function AskForRaisePawn()
+{
+    CHESS_PIECE_CHOISE.style.display = "flex";
+    let choiseButtons = CHESS_PIECE_CHOISE.querySelectorAll(".chessPieceChoiceButton")
+
+    choiseButtons.forEach(button => {
+        button.querySelector(".chessFigure").src =""+IMAGE_RELETION[turn + button.value];
+    });
+
+    return new Promise(resolve => {
+        choiseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+               CHESS_PIECE_CHOISE.style.display = "none";
+                resolve(turn + button.value);
+            });
+        });
+    });
+
+
+}
+
+
+
