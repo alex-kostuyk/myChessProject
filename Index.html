@@ -39,11 +39,17 @@
 
     <h1 class="text" id = "turn">white</h1>
     <div class="board">
-      <div class="chessPieceChoice">
+      <div class="popUPContainer chessPieceChoice">
           <button onclick="" class="chessPieceChoiceButton roundTop" value="Queen"><img class="chessFigure" src="https://cdn.discordapp.com/attachments/730141789490512005/1106268782856507432/bq.png" alt=""></button>
           <button onclick="" class="chessPieceChoiceButton" value="Rook"><img class="chessFigure" src="https://cdn.discordapp.com/attachments/730141789490512005/1106268782856507432/bq.png" alt=""></button>
           <button onclick="" class="chessPieceChoiceButton" value="Bishop"><img class="chessFigure" src="https://cdn.discordapp.com/attachments/730141789490512005/1106268782856507432/bq.png" alt=""></button>
           <button onclick="" class="chessPieceChoiceButton roundBottom" value="Knight"><img class="chessFigure" src="https://cdn.discordapp.com/attachments/730141789490512005/1106268782856507432/bq.png" alt=""></button>
+      </div>
+      <div class="popUPContainer popUPView"> 
+            <div class="popUPWindow">
+              <div id="popUPHeader"><h1 id = "popUPHeaderText"></h1></div>
+              <button class="buttonStyle1" id="popUPButton" onClick="window.location.reload();">Play Again</button>
+            </div>
       </div>
    <table id = "tableBoard">
     <tr>

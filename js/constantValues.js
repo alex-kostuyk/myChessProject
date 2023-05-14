@@ -51,7 +51,9 @@ const START_BOARD =
     [CHESS_FIGURE.white.rook,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.queen,CHESS_FIGURE.white.king,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.rook]
 ];
 const CHESS_PIECE_CHOISE = document.querySelector('.chessPieceChoice');
+const POPUP_WINDOW = document.querySelector('.popUPView');
 const BOARD_CONTAINER = document.querySelector('.board');
+const POPUP_WINDOW_HEADER_TEXT_ID = 'popUPHeaderText';
 const TABLE_ID = "tableBoard";
 const DRAG_OVER_CELL_CLASS = "selectedCell";
 const BLACK_CELL_ID = "black";

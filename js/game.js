@@ -1,5 +1,5 @@
 let lastMove = null;
-let turnText;
+let turnText,popUPText;
 let enPassantMove = null;
 let castleMove = null;
 let allMoves=[];
@@ -10,6 +10,7 @@ function Init()
     BOARD_CONTAINER.style.height = BOARD_CONTAINER.offsetWidth + 'px';
     boardTableView = document.getElementById(TABLE_ID);
     turnText = document.getElementById(TURN_TEXT_ID);
+    popUPText = document.getElementById(POPUP_WINDOW_HEADER_TEXT_ID);
     UpdateView(START_BOARD);
 }
 
@@ -30,13 +31,13 @@ async function OnCellDown(cell)
             
             if(IsStalemate(activeBoard,turn))
             {
-                alert("draw")
+                ActivatePopUp("draw")
             }
             if(IsCheckMate(activeBoard,turn))
             {  
-                alert((turn == TURN.white? TURN.black : TURN.white) + " player wins")
+                ActivatePopUp((turn == TURN.white? TURN.black : TURN.white) + " player wins")
             }
-            
+
             return;
         }
     }
@@ -152,4 +153,9 @@ function IsStalemate(board,color)
     return true;
 }
 
+function ActivatePopUp(message)
+{
+    POPUP_WINDOW.style.display = "flex";
+    popUPText.textContent = message;
 
+}

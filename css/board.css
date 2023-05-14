@@ -12,8 +12,8 @@ body{
 
 .board{
     width: 40%;
-    margin: auto;
     position: relative;
+    z-index: -1;
     user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -22,7 +22,7 @@ body{
  
 }
 
-.chessPieceChoice{
+.popUPContainer{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -33,6 +33,17 @@ body{
     backdrop-filter: blur(2px);
     background-color: #312e2b5e;
 
+}
+
+.popUPWindow{
+    background-color: #eaeaea;
+    border-radius: 20px;
+    height: 90%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    justify-content:baseline;
 }
 
 .chessPieceChoiceButton{
@@ -72,6 +83,54 @@ table{
     background-color: #EAEDDC;
 }
 
+#popUPHeader{
+    background-color: #5f5e5d;
+    height: 30%;
+    width: 100%;
+    border-radius: 20px;
+    border-bottom-left-radius: 70%;
+    border-bottom-right-radius: 70%;
+}
+#popUPHeader>h1{
+    color: white;
+    font-size: 35pt;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.buttonStyle1{
+    
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease,transform 0.15s ease;
+    will-change: box-shadow,transform;
+    background: #4E6B93;
+    box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #394e6b;
+    height: 80px;
+    padding: 0 32px;
+    font-size: 26px;
+    font-weight: bolder;
+    border-radius: 6px;
+    color: #FCFCFD;
+    transition: box-shadow 0.15s ease,transform 0.15s ease;
+    
+}
+.buttonStyle1:hover {
+        box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #425b7d;
+        transform: translateY(-2px);
+}
+.buttonStyle1:active{
+        box-shadow: inset 0px 3px 7px #171f2b;
+        transform: translateY(2px);
+}
+
+#popUPButton{
+    margin-top: 55%;
+    align-self: center;
+}
+    
 .selectedCell{
     box-shadow:0px 0px 0px 4px #b9c3af inset;
 }
