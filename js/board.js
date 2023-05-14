@@ -25,14 +25,14 @@ function ShowPosibleMoves()
 {
    posibleMoves = GetPosibleMoves(activeBoard,selectedFigure);
    
-    UpdateBackgroundCss(false,posibleMoves);
+    UpdatePosibleMovesBackgroundCss(false,posibleMoves);
     
 }
 
 function ClearPosibleMoves()
 {
     if(posibleMoves!=null)
-    UpdateBackgroundCss(true,posibleMoves);
+    UpdatePosibleMovesBackgroundCss(true,posibleMoves);
 }
 
 function UpdateView(boardArray)
@@ -58,7 +58,7 @@ function UpdateLastMoveView()
     }
 
 }
-function UpdateBackgroundCss(clear,points)
+function UpdatePosibleMovesBackgroundCss(clear,points)
 {
     let imgLink;
     for(let i = 0; i<points.length; i++)

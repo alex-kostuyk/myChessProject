@@ -29,8 +29,14 @@ function OnCellDown(cell)
             UpdateView(activeBoard);
             if(IsCheckMate(activeBoard,turn))
             {  
-                alert(turn == TURN.white? TURN.black : TURN.white + " player wins")
+                alert((turn == TURN.white? TURN.black : TURN.white) + " player wins")
             }
+            
+            if(IsStalemate(activeBoard,turn))
+            {
+                alert("draw")
+            }
+
             return;
         }
     }
@@ -44,14 +50,13 @@ function OnCellDown(cell)
 
 }
 
-
 function MakeMove(row, colum)
 {
     if(enPassantMove!=null&&enPassantMove[0]==row&&enPassantMove[1]==colum)
     {
         activeBoard[row+ (turn == TURN.white ? 1 : -1)][colum] = CHESS_FIGURE.empty;
     }
-    if(castleMove!=null&& castleMove!=[])
+    if(castleMove!=null&& castleMove.length != 0 && getFigureType(selectedFigure.type)==CHESS_FIGURE.colorless.king)
     {
         castleMove.forEach(move=>{
             if(move[0]==row&&move[1]==colum)
@@ -61,7 +66,6 @@ function MakeMove(row, colum)
             }
       });
     }
-    //if()
     activeBoard[row][colum] = activeBoard[selectedFigure.row][selectedFigure.colum];
     activeBoard[selectedFigure.row][selectedFigure.colum] = CHESS_FIGURE.empty;
 
@@ -70,6 +74,77 @@ function MakeMove(row, colum)
     turn = turn == TURN.white? TURN.black : TURN.white;
     enPassantMove = null;
     castleMove =null;
+}
+
+function IsCheckMate(board,color)
+{
+    if(!IsCheck(board,color))
+      return false;
+
+      for (let row = 0; row < 8; row++) {
+        for (let colum = 0; colum < 8; colum++) {
+          let figure = board[row][colum];
+          if (getFigureColor(figure) == color &&  getFigureType(figure) !== CHESS_FIGURE.empty) {
+            let possibleMoves = GetAllPosibleMoves(board, { row, colum });
+
+            for (let i = 0; i < possibleMoves.length; i++) {
+              let move = possibleMoves[i];
+
+              if (!IsCheck(GetBoardWithMove(board,{ row, colum },move),color)) {
+                return false;
+             }
+            }
+          }
+        }
+      }
+      
+      
+      return true;
+}
+
+function IsStalemate(board,color)
+{
+    //check for repeat moves
+    if(allMoves.length>9)
+    {
+        let firstRepeat = false;
+        let secondRepeat = false;
+    for (let i = allMoves.length-1; i > allMoves.length-11; i--) {
+        if(countOccurrences(allMoves, allMoves[i])==3)
+        {
+            if(i%2==0)
+                firstRepeat =true;
+            else
+                secondRepeat = true;
+        }
+    }
+
+    function countOccurrences(moves, move) {
+        let count = 0;
+        for (let i = 0; i < moves.length; i++) {
+          if (moves[i].to.row == move.to.row&&moves[i].to.colum == move.to.colum&&moves[i].type == move.type) {
+            count++;
+          }
+        }
+        return count;
+      }
+      
+        if(firstRepeat&&secondRepeat)
+            return true;
+    }
+    //check for lack of moves
+
+    for (let row = 0; row < 8; row++) {
+        for (let colum = 0; colum < 8; colum++) {
+            if(getFigureColor(board[row][colum])==color)
+            {
+               if(GetPosibleMoves(board,{row,colum}).length!=0)
+                return false;
+            }
+        }
+    }
+    
+    return true;
 }
 
 

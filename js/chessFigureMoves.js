@@ -2,9 +2,10 @@ function GetPosibleMoves(board, figurePosition)
 {
     let allPosibleMoves = GetAllPosibleMoves(board, figurePosition);
     let posibleMoves = [];
-    let color= getFigureColor(figurePosition.type);
+    let figure = board[figurePosition.row][figurePosition.colum];
+    let color= getFigureColor(figure);
 
-    if(getFigureType(figurePosition.type) === CHESS_FIGURE.colorless.king && !IsCheck(board,color))
+    if(getFigureType(figure) === CHESS_FIGURE.colorless.king && !IsCheck(board,color))
     {
       castleMove = getCastleMove(board,figurePosition,color);
       castleMove.forEach(move=>{
@@ -271,19 +272,17 @@ function getRookMoves(board, figurePosition, color) {
 }
 function getCastleMove(board, figurePosition,color) {
     const row = color === TURN.white ?  7:0;
-    let leftRookMoved = false;
-    let rightRookMoved = false;
+    let leftRookMoved = true;
+    let rightRookMoved = true;
     moves = [];
 
-
-
     for (let i = 0; i < allMoves.length; i++) {
-      if(allMoves[i].type===figurePosition.type)
+      if(allMoves[i].type===board[figurePosition.row][figurePosition.colum])
       {
        return [];
       }
        
-       if(allMoves[i].from.row == row && allMoves[i].type == CHESS_FIGURE.white.rook)
+       if(allMoves[i].from.row == row && allMoves[i].type ==(color + CHESS_FIGURE.colorless.rook))
        {
          if(allMoves[i].from.colum == 0)leftRookMoved = true;
          if(allMoves[i].from.colum == 7)rightRookMoved = true;
@@ -294,7 +293,7 @@ function getCastleMove(board, figurePosition,color) {
     {
       let isPathClear = true;
       for (let i = 5; i < 7; i++) {
-        if (board[row][i] !== CHESS_FIGURE.empty) {
+        if (board[row][i] !== CHESS_FIGURE.empty || IsCheck(GetBoardWithMove(board,figurePosition,[row,i]),color)) {
           isPathClear = false;
           break;
         }
@@ -309,7 +308,7 @@ function getCastleMove(board, figurePosition,color) {
     {
       let isPathClear = true;
       for (let i = 1; i < 4; i++) {
-        if (board[row][i] !== CHESS_FIGURE.empty) {
+        if (board[row][i] !== CHESS_FIGURE.empty|| IsCheck(GetBoardWithMove(board,figurePosition,[row,i]),color)) {
           isPathClear = false;
           break;
         }
@@ -334,29 +333,4 @@ function isEnPassant(board, pawnPosition) {
     return true; 
   }
   return false;
-}
-function IsCheckMate(board,color)
-{
-    if(!IsCheck(board,color))
-      return false;
-
-      for (let row = 0; row < 8; row++) {
-        for (let colum = 0; colum < 8; colum++) {
-          let figure = board[row][colum];
-          if (getFigureColor(figure) == color &&  getFigureType(figure) !== CHESS_FIGURE.empty) {
-            let possibleMoves = GetAllPosibleMoves(board, { row, colum });
-
-            for (let i = 0; i < possibleMoves.length; i++) {
-              let move = possibleMoves[i];
-
-              if (!IsCheck(GetBoardWithMove(board,{ row, colum },move),color)) {
-                return false;
-             }
-            }
-          }
-        }
-      }
-      
-      
-      return true;
 }
