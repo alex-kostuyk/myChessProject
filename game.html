@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/navBar.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="icon" src = "https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Chess project</title>
+   </head>
+<header>
+    <nav>
+        <div class="navbar">
+          <div class="container nav-container">
+              <input class="checkbox" type="checkbox" name="" id="" />
+              <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+              </div>  
+            <div class="logo">
+              <h1>Chess.online <img class="logoImg" src="https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png" alt=""></h1>
+            </div>
+            <div class="menu-items">
+              <li><a href="Index.html">Home</a></li>
+              <li><a href="#">profile</a></li>
+              <li><a href="#">chess problems</a></li>
+              <li><a href="authorization.html">log in</a></li>
+            </div>
+          </div>
+        </div>
+      </nav>
+</header>
+<body>
+   
+
+
+    <div class="boardContainer">
+        <div class="playerViewContainer">
+            <div class="profileViewContainer">
+                <div class="profileView">
+                    <img class="profileImage opponentProfileImage" src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
+                    <div class="profileText">
+                        <p class="profileName opponentProfileName">opponent</p>
+                        <p class="profileRaiting opponentProfileRaiting">1217</p>
+                    </div>
+                </div>
+                <div class="timer" id="timerOpponent"><p class="timerText">00:00</p></div>
+            </div>
+            <div class="showEatenPiece" id = "whiteEatenPiece">
+            </div>
+        </div>
+    <div class="board">
+      <img id ="drag-element" src="https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png" alt="">
+      <div class="popUPContainer chessPieceChoice">
+          <button onclick="" class="chessPieceChoiceButton roundTop" value="Queen"><img class="chessFigure" src="" alt=""></button>
+          <button onclick="" class="chessPieceChoiceButton" value="Rook"><img class="chessFigure" src="" alt=""></button>
+          <button onclick="" class="chessPieceChoiceButton" value="Bishop"><img class="chessFigure" src="" alt=""></button>
+          <button onclick="" class="chessPieceChoiceButton roundBottom" value="Knight"><img class="chessFigure" src="" alt=""></button>
+      </div>
+      <div class="popUPContainer popUPView"> 
+            <div class="popUPWindow">
+              <div id="popUPHeader"><h1 id = "popUPHeaderText"></h1></div>
+                <div id="showResult">
+                    <div class="profileViewContainer">
+                        <img class="profileImage youreProfileImage"  src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
+                        <p class="profileNameMessage youreProfileName">you</p>
+                        <p class="profileRaitingMessage youreProfileRaiting">1125</p>
+                    </div>
+                    <h1 id = "finalScore">0 : 0</h1>
+                    <div class="profileViewContainer">
+                        <img class="profileImage opponentProfileImage"  src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
+                        <p class="profileNameMessage opponentProfileName">opponent</p>
+                        <p class="profileRaitingMessage opponentProfileRaiting">1217</p>
+                    </div>
+
+                </div>
+              <button class="buttonStyle1" id="popUPButton" onClick="window.location.reload();">Play Again</button>
+            </div>
+      </div>
+   <table id = "tableBoard">
+    <tr>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+    </tr>
+    <tr>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+        <td class = "cell" id="black"></td>
+        <td class = "cell" id="white"></td>
+    </tr>
+   </table>
+  </div> 
+      <div class="playerViewContainer">
+        <div class="profileViewContainer">
+            <div class="profileView">
+                <img class="profileImage youreProfileImage"  src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
+                <div class="profileText">
+                    <p class="profileName youreProfileName">You</p>
+                    <p class="profileRaiting youreProfileRaiting">1125</p>
+                </div>
+            </div>
+            <div class="timer" id="timerYou"><p class="timerText">00:00</p></div>
+        </div>
+          <div class="showEatenPiece" id = "blackEatenPiece"></div>  
+      </div>
+</div>
+
+  <script src="js/constantValues.js"></script>
+<script src="js/sidesIdentefication.js"></script>
+   <script src="js/PopUpWindows.js"></script>
+   <script src="js/timer.js"></script>  
+   <script src="js/objects.js"></script>
+   <script src="js/board.js"></script>
+   <script src="js/chessFigureMoves.js"></script>
+   <script src="js/game.js"></script>
+   <script src="js/drag&Drop.js"></script>
+   <script src="js/events.js"></script>
+   
+   
+</body>
+<footer>
+
+</footer>
+</html>

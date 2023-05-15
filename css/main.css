@@ -1,0 +1,87 @@
+.buttonContainerColumn{
+    height: 100%;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 10px;
+    border-radius: 15px;
+    background-color: #3c3a37;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
+.buttonMainMenu,.selectionMainMenu{
+    width: 90%;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.titleTime{
+    color: rgb(159, 159, 159);
+    font-size: 1rem;
+    font-weight: 500;
+    width: 90%;
+    align-self: center;
+}
+.buttonContainerRow{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    flex-shrink: 0
+}
+
+.radioButtonStyle1{
+    height: 45px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(61, 61, 61, 0.4), 0px 7px 13px -3px rgba(60, 60, 60, 0.3), inset 0px -3px 0px #4f4f4f;
+    background-color: #272522;
+    color: white;
+    font-size: 1rem;
+}
+.radioButtonSelect{
+    background-color: rgb(195, 195, 195);
+    color: #272522;
+    box-shadow: inset 0px 3px 7px #000000;
+}
+
+.selectionMainMenu{
+    height: 100px;
+    background-color: #545454;
+    box-shadow: inset 0px 3px 7px #000000;
+}
+
+.selectionMainMenu>option{
+    background-color: #7b7b7b;
+}
+.selectionMainMenu>option:hover{
+    background-color: #484848;
+}
+
+.headerMenu{
+    height: 30%;
+    min-height: 100px;
+    width: 100%;
+    background-color: #1b1a18;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    text-align: center;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.headerMenu>h1{
+    margin-top: 20px
+}
+
+#message{
+    color: #a04a4a;
+}

@@ -59,6 +59,12 @@ const START_BOARD =
     [CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn],
     [CHESS_FIGURE.white.rook,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.queen,CHESS_FIGURE.white.king,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.rook]
 ];
+const YUORE_NICK_NAMES_ELEMENTS = document.querySelectorAll('.youreProfileName');
+const OPPONENT_NICK_NAMES_ELEMENTS = document.querySelectorAll('.opponentProfileName');
+const YUORE_IMGLOGO_ELEMENTS = document.querySelectorAll('.youreProfileImage');
+const OPPONENT_IMGLOGO_ELEMENTS = document.querySelectorAll('.opponentProfileImage');
+const YUORE_RAITING_ELEMENTS = document.querySelectorAll('.youreProfileRaiting');
+const OPPONENT_RAITING_ELEMENTS = document.querySelectorAll('.opponentProfileRaiting');
 const SCORE_TEXT = document.getElementById("finalScore");
 const EATEN_PIECE_WHITE = document.getElementById("whiteEatenPiece");
 const EATEN_PIECE_BLACK = document.getElementById("blackEatenPiece");
