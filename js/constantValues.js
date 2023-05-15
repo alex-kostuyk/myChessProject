@@ -59,6 +59,7 @@ const START_BOARD =
     [CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn,CHESS_FIGURE.white.pawn],
     [CHESS_FIGURE.white.rook,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.queen,CHESS_FIGURE.white.king,CHESS_FIGURE.white.bishop,CHESS_FIGURE.white.knight,CHESS_FIGURE.white.rook]
 ];
+const SCORE_TEXT = document.getElementById("finalScore");
 const EATEN_PIECE_WHITE = document.getElementById("whiteEatenPiece");
 const EATEN_PIECE_BLACK = document.getElementById("blackEatenPiece");
 const DRAG_ELEMENT = document.getElementById("drag-element");

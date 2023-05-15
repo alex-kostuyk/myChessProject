@@ -9,6 +9,8 @@ let additionalOffset = -30;
 Init()
 function Init()
 {  
+    activeBoard = SHOW_BOARD_REVERSE?START_BOARD.reverse():START_BOARD;
+
     boardTableView = document.getElementById(TABLE_ID);
     popUPText = document.getElementById(POPUP_WINDOW_HEADER_TEXT_ID);
     UpdateView(START_BOARD);
@@ -61,14 +63,14 @@ async function OnCellDown(cell)
 
 async function MakeMove(row, colum)
 {
-    if(getFigureType(selectedFigure.type)==CHESS_FIGURE.colorless.pawn&&row == (turn==TURN.white?0:7))
+    if(getFigureType(selectedFigure.type)==CHESS_FIGURE.colorless.pawn&&row == (turn==TURN.white?(SHOW_BOARD_REVERSE?7:0) : (SHOW_BOARD_REVERSE?0:7)))
     {
         activeBoard[selectedFigure.row][selectedFigure.colum] = await AskForRaisePawn();     
     }
 
     if(enPassantMove!=null&&enPassantMove[0]==row&&enPassantMove[1]==colum)
     {
-        let pawnRow = row+ (turn == TURN.white ? 1 : -1);
+        let pawnRow = row+ (turn == TURN.white ? (SHOW_BOARD_REVERSE?-1:1):(SHOW_BOARD_REVERSE?1:-1));
         eatenPieces.push(activeBoard[pawnRow][colum]);
         activeBoard[pawnRow][colum] = CHESS_FIGURE.empty;
     }

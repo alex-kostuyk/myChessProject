@@ -14,7 +14,7 @@ function GetPosibleMoves(board, figurePosition)
     }
     if(isEnPassant(activeBoard,selectedFigure)&&getFigureType(figure)==CHESS_FIGURE.colorless.pawn)
     {
-        enPassantMove = [lastMove.to.row + (color == TURN.white ? -1 : 1),lastMove.to.colum]
+        enPassantMove = [lastMove.to.row + (color == TURN.white ?(SHOW_BOARD_REVERSE?1:-1) : (SHOW_BOARD_REVERSE?-1:1) ),lastMove.to.colum]
         posibleMoves.push(enPassantMove);
     }
 
@@ -90,8 +90,9 @@ function GetAllPosibleMoves(board, figurePosition)
     switch(figure)
     {
         case CHESS_FIGURE.colorless.pawn:
-                const direction = color == TURN.white ? -1 : 1;
-      
+     
+                const direction = color == TURN.white?(SHOW_BOARD_REVERSE?1:-1) : (SHOW_BOARD_REVERSE?-1:1);
+
       // Check if the pawn can capture diagonally
       let leftColumn = figurePosition.colum - 1;
       let rightColumn = figurePosition.colum + 1;
@@ -115,7 +116,7 @@ function GetAllPosibleMoves(board, figurePosition)
         return posibleMoves;
       }
       // Check if the pawn can move two squares forward from its starting position
-      if ((color == TURN.white && figurePosition.row == 6) || (color == TURN.black && figurePosition.row == 1)) {
+      if ((color == TURN.white && figurePosition.row == NormalizeIndex(6)) || (color == TURN.black && figurePosition.row == NormalizeIndex(1))) {
         if (board[figurePosition.row + direction * 2][figurePosition.colum] == CHESS_FIGURE.empty) {
           posibleMoves.push([figurePosition.row + direction * 2, figurePosition.colum]);
         }
@@ -271,7 +272,7 @@ function getRookMoves(board, figurePosition, color) {
 
 }
 function getCastleMove(board, figurePosition,color) {
-    const row = color === TURN.white ?  7:0;
+    const row = color === TURN.white ?(SHOW_BOARD_REVERSE?0:7):(SHOW_BOARD_REVERSE?7:0);
     let leftRookMoved = false;
     let rightRookMoved = false;
     moves = [];

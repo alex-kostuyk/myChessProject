@@ -1,4 +1,4 @@
-let activeBoard = START_BOARD;
+let activeBoard;
 let turn = TURN.white;
 let boardTableView;
 

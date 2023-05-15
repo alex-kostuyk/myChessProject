@@ -11,7 +11,7 @@ class Timer {
   
     Start()
     {
-        this.countdown = setInterval(this.updateCountdown.bind(this), 1000);
+        this.countdown = setInterval(this.updateCountdown.bind(this), 500);
         this.timerElement.classList.toggle("timerActive");
         this.endTime = new Date().getTime()+ this.remainingTime;
 
@@ -39,7 +39,7 @@ class Timer {
 
   
   let timerOpponent = new Timer(document.getElementById(("timerOpponent")),300);
-  let timerYou = new Timer(document.getElementById(("timerYou")),10);
+  let timerYou = new Timer(document.getElementById(("timerYou")),300);
   
   function toggleTimer()
   {

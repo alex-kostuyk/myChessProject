@@ -6,7 +6,9 @@ function ActivatePopUp(message)
 }
 function SetGameWinner()
 {
-    ActivatePopUp((turn == TURN.white? TURN.black : TURN.white) + " player wins");
+    let winnerType = turn == TURN.white? TURN.black : TURN.white;
+    ActivatePopUp(winnerType + " player wins");
+    SCORE_TEXT.textContent = sides[players.you]==winnerType?"1 : 0":"0 : 1";
 }
 function UpdateEatenPiecesView()
 {
@@ -19,8 +21,7 @@ function UpdateEatenPiecesView()
         var elem = document.createElement("img");
             elem.setAttribute("src", IMAGE_RELETION[piece]);
             elem.setAttribute("class", "eatenPieceImage");
-            
-        (getFigureColor(piece) == TURN.white?EATEN_PIECE_WHITE:EATEN_PIECE_BLACK).appendChild(elem);
+        (getFigureColor(piece) == TURN.white?(SHOW_BOARD_REVERSE?EATEN_PIECE_BLACK:EATEN_PIECE_WHITE):(SHOW_BOARD_REVERSE?EATEN_PIECE_WHITE:EATEN_PIECE_BLACK)).appendChild(elem);
     })
 }
 
@@ -31,7 +32,7 @@ function windowResize()
             popUP.style.height = BOARD_CONTAINER.offsetWidth + 'px';
             popUP.style.width = BOARD_CONTAINER.offsetWidth + 'px';
       })
-      let sizeCoeficient =4.5;
+      let sizeCoeficient =6;
       if(window.innerHeight < window.innerWidth){
         sizeCoeficient = 7;
         BOARD_CONTAINER.style.height =window.innerHeight*0.6 + 'px';
