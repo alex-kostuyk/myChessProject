@@ -43,7 +43,7 @@ const IMAGE_RELETION =
     {
         'Pawn':1,
         'Knight':3,
-        'Bishop':3,
+        'Bishop':4,
         'Rook':5,
         'Queen':10 
     }
@@ -82,3 +82,4 @@ const TURN =
     black: "black",
     white: "white"
 };
+let eatenPieces = [];
