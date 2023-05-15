@@ -1,7 +1,5 @@
 let currentX =0;
 let currentY =0;
-let initialX =0;
-let initialY =0;
 let xOffset = 0;
 let yOffset = 0;
 let active = false;
@@ -42,7 +40,6 @@ function touchMove(event) {
       currentY = event.touches[0].clientY;
       target = document.elementFromPoint(currentX, currentY);
     }
-   
 
     xOffset = currentX;
     yOffset = currentY;
@@ -62,8 +59,6 @@ function touchMove(event) {
 }
 
 function touchEnd(event) {
-  initialX = currentX;
-  initialY = currentY;
   
   document.body.style.cursor = "default";
   active = false;
@@ -77,11 +72,12 @@ function touchEnd(event) {
 
   UpdateView();
   if(target.className!="cell")
-  return;
+      return;
+  
   OnCellDown(target);
     
 }
 
 function setTranslate(xPos, yPos, el) {
-  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  el.style.transform = "translate3d(" + (xPos-additionalOffset) + "px, " + (yPos-additionalOffset) + "px, 0)";
 }

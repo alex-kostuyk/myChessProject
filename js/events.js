@@ -1,5 +1,5 @@
 const cells = document.querySelectorAll('.cell');
-
+windowResize();
 window.addEventListener('resize', function(){
       windowResize();
 });

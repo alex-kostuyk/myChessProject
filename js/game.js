@@ -1,15 +1,15 @@
 let lastMove = null;
-let turnText,popUPText;
+let popUPText;
 let enPassantMove = null;
 let castleMove = null;
 let allMoves=[];
 let eatenPieces = [];
 let posibleMoves = null;
+let additionalOffset = -30;
 Init()
 function Init()
 {  
     boardTableView = document.getElementById(TABLE_ID);
-    turnText = document.getElementById(TURN_TEXT_ID);
     popUPText = document.getElementById(POPUP_WINDOW_HEADER_TEXT_ID);
     UpdateView(START_BOARD);
     windowResize();
@@ -186,11 +186,24 @@ function UpdateEatenPiecesView()
 
 function windowResize()
 {
-      BOARD_CONTAINER.style.height = BOARD_CONTAINER.offsetWidth + 'px';
+      
       POPUPS.forEach(popUP =>{
             popUP.style.height = BOARD_CONTAINER.offsetWidth + 'px';
             popUP.style.width = BOARD_CONTAINER.offsetWidth + 'px';
       })
-      DRAG_ELEMENT.style.height = BOARD_CONTAINER.offsetWidth/7 + 'px';
-      DRAG_ELEMENT.style.width = BOARD_CONTAINER.offsetWidth/7 + 'px';
+      let sizeCoeficient =4.5;
+      if(window.innerHeight < window.innerWidth){
+        sizeCoeficient = 7;
+        BOARD_CONTAINER.style.height =window.innerHeight*0.6 + 'px';
+        BOARD_CONTAINER.style.width = BOARD_CONTAINER.offsetHeight + 'px';
+    }
+    else{
+            BOARD_CONTAINER.style.width =window.innerWidth + 'px';
+            BOARD_CONTAINER.style.height = BOARD_CONTAINER.offsetWidth + 'px';
+        }  
+     DRAG_ELEMENT.style.width = BOARD_CONTAINER.offsetWidth/sizeCoeficient + 'px';
+      DRAG_ELEMENT.style.height = BOARD_CONTAINER.offsetWidth/sizeCoeficient + 'px';
+      
+
+      additionalOffset=Number.parseFloat(DRAG_ELEMENT.style.height.split('px')[0])/2;
 }

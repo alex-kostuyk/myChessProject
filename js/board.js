@@ -45,8 +45,6 @@ function UpdateView(boardArray)
     }
     UpdateLastMoveView();
     
-    turnText.innerHTML = "turn: " + turn;
-    
 }
 
 function UpdateLastMoveView()
