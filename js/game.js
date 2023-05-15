@@ -191,4 +191,6 @@ function windowResize()
             popUP.style.height = BOARD_CONTAINER.offsetWidth + 'px';
             popUP.style.width = BOARD_CONTAINER.offsetWidth + 'px';
       })
+      DRAG_ELEMENT.style.height = BOARD_CONTAINER.offsetWidth/7 + 'px';
+      DRAG_ELEMENT.style.width = BOARD_CONTAINER.offsetWidth/7 + 'px';
 }

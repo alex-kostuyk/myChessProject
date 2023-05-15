@@ -12,7 +12,7 @@ function GetPosibleMoves(board, figurePosition)
             allPosibleMoves.push(move);
       });
     }
-    if(isEnPassant(activeBoard,selectedFigure))
+    if(isEnPassant(activeBoard,selectedFigure)&&getFigureType(figure)==CHESS_FIGURE.colorless.pawn)
     {
         enPassantMove = [lastMove.to.row + (color == TURN.white ? -1 : 1),lastMove.to.colum]
         posibleMoves.push(enPassantMove);
@@ -272,8 +272,8 @@ function getRookMoves(board, figurePosition, color) {
 }
 function getCastleMove(board, figurePosition,color) {
     const row = color === TURN.white ?  7:0;
-    let leftRookMoved = true;
-    let rightRookMoved = true;
+    let leftRookMoved = false;
+    let rightRookMoved = false;
     moves = [];
 
     for (let i = 0; i < allMoves.length; i++) {
@@ -281,7 +281,7 @@ function getCastleMove(board, figurePosition,color) {
       {
        return [];
       }
-       
+
        if(allMoves[i].from.row == row && allMoves[i].type ==(color + CHESS_FIGURE.colorless.rook))
        {
          if(allMoves[i].from.colum == 0)leftRookMoved = true;
@@ -305,7 +305,7 @@ function getCastleMove(board, figurePosition,color) {
     }
 
     if(!leftRookMoved)
-    {
+    { 
       let isPathClear = true;
       for (let i = 1; i < 4; i++) {
         if (board[row][i] !== CHESS_FIGURE.empty|| IsCheck(GetBoardWithMove(board,figurePosition,[row,i]),color)) {

@@ -5,7 +5,14 @@ window.addEventListener('resize', function(){
 });
 
 cells.forEach(cell => {
-  cell.addEventListener('mousedown', function() {
-        OnCellDown(cell);
+      // Add touch event listeners for mobile devices
+      cell.addEventListener("touchstart", touchStart, false);
+      cell.addEventListener("touchmove", touchMove, false);
+      cell.addEventListener("touchend", touchEnd, false);
+
+      // Add event listeners for desktop devices
+      cell.addEventListener("mousedown", touchStart, false);
+      cell.addEventListener("mousemove", touchMove, false);
+      cell.addEventListener("mouseup", touchEnd, false);
 });
-});
+

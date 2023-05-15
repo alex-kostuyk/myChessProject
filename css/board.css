@@ -33,7 +33,7 @@ body{
 
 .showEatenPiece{
     width: 100%;
-    height: fit-content;
+    height: 18pt;
     display: flex; 
     flex-direction: row;
 }
@@ -124,6 +124,21 @@ table{
     padding-top: 20px;
 }
 
+#drag-element{
+    position: absolute;
+    height: 60pt;
+    width: 60pt;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: none;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
 .buttonStyle1{
     
     display: inline-block;
@@ -158,7 +173,7 @@ table{
 }
     
 .selectedCell{
-    box-shadow:0px 0px 0px 4px #b9c3af inset;
+    box-shadow: inset 0px 3px 7px #171f2b;
 }
 
 
@@ -166,4 +181,9 @@ table{
     .boardContainer{
         width: 100%;
     }
+    #drag-element{
+        height: 40pt;
+        width: 40pt;
+    }
+    
  }

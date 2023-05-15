@@ -61,6 +61,7 @@ const START_BOARD =
 ];
 const EATEN_PIECE_WHITE = document.getElementById("whiteEatenPiece");
 const EATEN_PIECE_BLACK = document.getElementById("blackEatenPiece");
+const DRAG_ELEMENT = document.getElementById("drag-element");
 const CHESS_PIECE_CHOISE = document.querySelector('.chessPieceChoice');
 const POPUP_WINDOW = document.querySelector('.popUPView');
 const BOARD_CONTAINER = document.querySelector('.board');
