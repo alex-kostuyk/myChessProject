@@ -5,12 +5,12 @@ let castleMove = null;
 let allMoves=[];
 let posibleMoves = null;
 let additionalOffset = -30;
-
+let gameActive = true;
 Init()
 function Init()
 {  
     activeBoard = SHOW_BOARD_REVERSE?START_BOARD.reverse():START_BOARD;
-
+    
     boardTableView = document.getElementById(TABLE_ID);
     popUPText = document.getElementById(POPUP_WINDOW_HEADER_TEXT_ID);
     UpdateView(START_BOARD);
@@ -25,7 +25,6 @@ async function OnCellDown(cell)
 {
     let row = cell.parentElement.rowIndex;
     let colum = cell.cellIndex;
-
    
     if(getFigureColor(activeBoard[row][colum]) != turn && getFigureColor(selectedFigure.type) == turn)
     {
@@ -96,6 +95,7 @@ async function MakeMove(row, colum)
     turn = turn == TURN.white? TURN.black : TURN.white;
     enPassantMove = null;
     castleMove =null;
+
 }
 
 function IsCheckMate(board,color)

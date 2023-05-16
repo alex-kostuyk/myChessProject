@@ -79,6 +79,8 @@ const DRAG_OVER_CELL_CLASS = "selectedCell";
 const BLACK_CELL_ID = "black";
 const WHITE_CELL_ID = "white";
 const TURN_TEXT_ID = "turn";
+const BOT_OPPONENT= "bot";
+const LOCAL_OPPONENT = "pass";
 const CELL_COLORS = 
 {
     white: {selected:'#F7FD9D', regular: '#EAEDDC'},

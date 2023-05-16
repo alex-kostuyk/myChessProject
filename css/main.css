@@ -1,7 +1,7 @@
 .buttonContainerColumn{
     height: 100%;
     width: 90%;
-    max-width: 400px;
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     margin: auto;

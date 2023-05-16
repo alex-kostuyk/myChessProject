@@ -2,12 +2,15 @@ function ActivatePopUp(message)
 {
     POPUP_WINDOW.style.display = "flex";
     popUPText.textContent = message;
-
+    timerOpponent.Stop();
+    timerYou.Stop();
+    gameActive = false;
 }
 function SetGameWinner()
 {
     let winnerType = turn == TURN.white? TURN.black : TURN.white;
     ActivatePopUp(winnerType + " player wins");
+   
     SCORE_TEXT.textContent = sides[players.you]==winnerType?"1 : 0":"0 : 1";
 }
 function UpdateEatenPiecesView()

@@ -38,8 +38,8 @@ class Timer {
   }
 
   
-  let timerOpponent = new Timer(document.getElementById(("timerOpponent")),300);
-  let timerYou = new Timer(document.getElementById(("timerYou")),300);
+  let timerOpponent = new Timer(document.getElementById(("timerOpponent")),sessionStorage.getItem('GameTime'));
+  let timerYou = new Timer(document.getElementById(("timerYou")),sessionStorage.getItem('GameTime'));
   
   function toggleTimer()
   {

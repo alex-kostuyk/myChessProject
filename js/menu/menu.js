@@ -25,5 +25,9 @@ function submitOnClick()
     if(currentButton==null)
         message.textContent = "select game time"
     else
-        message.textContent = selection.value+" " + currentButton.value;
+    {
+        window.location.href = 'game.html';
+        sessionStorage.setItem("EnemyType",selection.value);
+        sessionStorage.setItem("GameTime",currentButton.value);
+    }
 }

@@ -39,8 +39,7 @@ function UpdateView(boardArray)
 {
 
     for (let i = 0; i < boardTableView.rows.length; i++) {
-        for (let j = 0; j < boardTableView.rows[i].cells.length; j++)
-         
+        for (let j = 0; j < boardTableView.rows[i].cells.length; j++)   
         boardTableView.rows[i].cells[j].style.cssText =  "background-image: url("+IMAGE_RELETION[activeBoard[i][j]]+"); background-size: cover;";
     }
     UpdateLastMoveView();
@@ -69,6 +68,9 @@ function UpdatePosibleMovesBackgroundCss(clear,points)
 
 function AskForRaisePawn()
 {
+    if(opponentType == BOT_OPPONENT)
+        return turn + CHESS_FIGURE.colorless.queen;
+        
     CHESS_PIECE_CHOISE.style.display = "flex";
     let choiseButtons = CHESS_PIECE_CHOISE.querySelectorAll(".chessPieceChoiceButton")
 

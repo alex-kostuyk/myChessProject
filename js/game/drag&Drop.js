@@ -9,6 +9,9 @@ let dragOverCell = null;
 
 function touchStart(event) { 
     
+  if(sides[players.opponent]==turn&&!opponentIsLocal)
+  return;
+
     let row = event.target.parentElement.rowIndex;
     let colum = event.target.cellIndex;
     if(getFigureColor(activeBoard[row][colum])==turn)
