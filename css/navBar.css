@@ -20,6 +20,7 @@ body {
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   background-color: #272522;
   color: white;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .nav-container {

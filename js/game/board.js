@@ -68,7 +68,7 @@ function UpdatePosibleMovesBackgroundCss(clear,points)
 
 function AskForRaisePawn()
 {
-    if(opponentType == BOT_OPPONENT)
+    if(opponentType == BOT_OPPONENT&&sides[players.opponent]==turn)
         return turn + CHESS_FIGURE.colorless.queen;
         
     CHESS_PIECE_CHOISE.style.display = "flex";

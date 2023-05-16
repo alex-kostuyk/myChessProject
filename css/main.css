@@ -1,5 +1,5 @@
 .buttonContainerColumn{
-    height: 100%;
+    height: fit-content;
     width: 90%;
     max-width: 550px;
     display: flex;
@@ -9,6 +9,8 @@
     border-radius: 15px;
     background-color: #3c3a37;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-top: 35px;
+    margin-bottom: 25%;
 }
 
 
@@ -84,4 +86,9 @@
 
 #message{
     color: #a04a4a;
+}
+@media screen and (orientation:landscape) { 
+    .buttonContainerColumn{
+        margin-bottom: 0%;
+    }
 }
