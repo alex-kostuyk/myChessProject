@@ -1,7 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    
-    
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
    
@@ -29,10 +28,10 @@
               <h1>Chess.online <img class="logoImg" src="https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png" alt=""></h1>
             </div>
             <div class="menu-items">
-              <li><a href="Index.html">Home</a></li>
-              <li><a href="profileView.html">profile</a></li>
-              <li><a href="leaderBoard.html">leaderboard</a></li>
-              <li><a href="FindNewFriend.html">find new friend</a></li>
+              <li><a href="Index.php">Home</a></li>
+              <li><a href="profileView.php">profile</a></li>
+              <li><a href="leaderBoard.php">leaderboard</a></li>
+              <li><a href="FindNewFriend.php">find new friend</a></li>
               <li><a href="authorization.html">log in</a></li>
             </div>
           </div>
@@ -89,10 +88,10 @@
           </a></li>
         </ul>
       <ul class="menu">
-        <li class="menu__item"><a class="menu__link" href="Index.html">Home</a></li>
-        <li class="menu__item"><a class="menu__link" href="profileView.html">profile</a></li>
-        <li class="menu__item"><a class="menu__link" href="leaderBoard.html">leaderboard</a></li>
-      <li class="menu__item"><a class="menu__link"  href="FindNewFriend.html">find new friend</a></li>
+        <li class="menu__item"><a class="menu__link" href="Index.php">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="profileView.php">profile</a></li>
+        <li class="menu__item"><a class="menu__link" href="leaderBoard.php">leaderboard</a></li>
+      <li class="menu__item"><a class="menu__link"  href="FindNewFriend.php">find new friend</a></li>
         <li class="menu__item"><a class="menu__link" href="authorization.html">log in</a></li>
     
       </ul>

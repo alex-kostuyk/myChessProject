@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="css/board.css">
 	<link rel="stylesheet" href="css/authorization.css">
-
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 				
 		<div class="container">
 			<div class="row full-height justify-content-center">
-				<a href="Index.html" ><img class="logoImg" src="https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png" alt=""></a>
+				<a href="Index.php" ><img class="logoImg" src="https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png" alt=""></a>
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
 		
@@ -29,16 +30,16 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Log In</h4>
+											<h1 class="validationError" id="messageLogIn"></h1>
 											<div class="form-group">
-												<input type="email" class="form-style" placeholder="Email">
+												<input type="name" class="form-style" placeholder="name" id="logInName">
 												<i class="input-icon uil uil-at"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password">
+												<input type="password" class="form-style" placeholder="Password" id="logInPassword">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
-											<a href=" " class="btn mt-4">Login</a>
-                      <p class="mb-0 mt-4 text-center"><a href=" " class="link">Forgot your password?</a></p>
+											<button onclick="LogInButton()" class="buttonStyle1">Login</button>
 				      					</div>
 			      					</div>
 			      				</div>
@@ -46,20 +47,21 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-3 pb-3">Sign Up</h4>
+											<h1 class="validationError" id="messageSignUp"></h1>
 											<div class="form-group">
-												<input type="text" class="form-style" placeholder="Full Name">
+												<input type="text" class="form-style" placeholder="Full Name" id="signName">
 												<i class="input-icon uil uil-user"></i>
 											</div>	
 											
                       						<div class="form-group mt-2">
-												<input type="email" class="form-style" placeholder="Email">
+												<input type="email" class="form-style" placeholder="Email" id="signEmail">
 												<i class="input-icon uil uil-at"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password">
+												<input type="password" class="form-style" placeholder="Password" id="signPassword">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
-											<a href=" " class="btn mt-4">Register</a>
+											<button class="buttonStyle1"  onclick="SignUpButton()">Register</button>
 				      					</div>
 			      					</div>
 			      				</div>
@@ -70,5 +72,6 @@
 	      	</div>
 	    </div>
 	</div>
+	<script src="js/menu/authorization.js"></script>
 </body>
 </html>

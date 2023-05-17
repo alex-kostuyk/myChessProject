@@ -27,7 +27,7 @@ function submitOnClick()
         message.textContent = "select game time"
     else
     {
-        window.location.href = 'game.html';
+        window.location.href = 'game.php';
         sessionStorage.setItem("EnemyType",selection.value);
         sessionStorage.setItem("GameTime",currentButton.value);
     }
