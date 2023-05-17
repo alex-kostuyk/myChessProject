@@ -6,7 +6,9 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
-
+input:focus {
+  outline: 1px solid white;
+}
 
 body {
   font-family: "Poppins", sans-serif;

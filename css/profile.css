@@ -48,6 +48,10 @@
     margin-right: 4%;
 }
 
+.newGameContainer{
+    max-width: 430px;
+}
+
 @media screen and (orientation:landscape) { 
     .whiteWeightFont, .youreProfileRaiting{
         padding-left: 5%;
@@ -60,4 +64,10 @@
         height: 37px;
         width: 37px;
     }
+}
+@media screen and (orientation:portrait) { 
+   
+.newGameContainer{
+    max-width: 1000px;
+}
 }

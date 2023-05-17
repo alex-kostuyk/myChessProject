@@ -13,7 +13,7 @@
 }
 
 
-.buttonMainMenu,.selectionMainMenu{
+.buttonMainMenu,.selectionMainMenu {
     width: 90%;
     align-self: center;
     margin-top: 20px;
@@ -27,7 +27,7 @@
     width: 90%;
     align-self: center;
 }
-.buttonContainerRow{
+.buttonContainerRow, .flexContainer{
     height: 100%;
     width: 90%;
     display: flex;
@@ -39,7 +39,7 @@
     flex-shrink: 0
 }
 
-.radioButtonStyle1{
+.radioButtonStyle1, .addButton{
     height: 45px;
     width: 100%;
     border-radius: 10px;
@@ -54,7 +54,7 @@
     box-shadow: inset 0px 3px 7px #000000;
 }
 
-.selectionMainMenu{
+.selectionMainMenu, .formSearch{
     height: 100px;
     background-color: #545454;
     box-shadow: inset 0px 3px 7px #000000;
@@ -83,11 +83,33 @@
     margin-top: 20px
 }
 
+.formSearch{
+    color: white;
+    height: 50px;
+    width: 100%;
+    min-width: 150px;
+    border-radius: 15px;
+    border: 0px;
+    padding-left: 20px;
+}
+
+.formSearch,.formSearch::placeholder {
+    font-size: 1rem;
+}
+.searchContainer{
+    padding-bottom: 20px;
+}
+
+.addButton{
+    width: fit-content;
+}
+
 #message{
     color: #a04a4a;
 }
-@media screen and (orientation:landscape) { 
-    .buttonContainerColumn{
-        margin-bottom: 0%;
+
+@media screen and (orientation:portrait) { 
+    .flexContainer{
+      flex-direction: column;
     }
 }

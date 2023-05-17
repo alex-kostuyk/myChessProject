@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('.radioButtonStyle1');
 const message = document.getElementById("message");
 const selection = document.getElementById("selectionMain");
+
 buttons.forEach(button=>{
     button.addEventListener("click", mouseDownRadio);
 });
