@@ -7,11 +7,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
     vertical-align: bottom;
     box-shadow: 0 20px 10px -20px rgba(0,0,0,0.45) inset;
-    margin-top: 55px;
-    
+    margin-top: 45px;
   }
   .social-icon,
   .menu {
@@ -63,4 +61,11 @@
   .social-icon__link>img{
     height: 50px;
     width: 50px;
+  }
+  .fill-remaining-space {
+    flex: auto;
+  }
+  .flexColoum{
+    display: flex;
+    flex-direction: column;
   }
