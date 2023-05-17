@@ -1,3 +1,9 @@
+<?php
+    require_once 'php/sqlConnect.php';
+
+    $result = $connect->query("SELECT Name, Rating , ImgLink FROM `Acounts` ORDER BY `Rating` DESC  LIMIT 10");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -51,36 +57,26 @@
           <h1 class="titleTime">🏆 Leaders:</h1>
             <div class="friendsList">
             
-              <div class="profileView profileViewFiend">
-                <img class="profileImage youreProfileImage"  src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
-                <div class="profileText">
-                    <p class="profileName friendProfileName">friendNickName</p>
-                    <h1 class="profileRaiting friendProfileRaiting">1125</h1>
-                </div>
-                <div class="fill-remaining-space"></div>
-                <p class="profileName">1🥇</p>
-                </div>
-
-                <div class="profileView profileViewFiend">
-                  <img class="profileImage youreProfileImage"  src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
-                  <div class="profileText">
-                      <p class="profileName friendProfileName">friendNickName</p>
-                      <h1 class="profileRaiting friendProfileRaiting">1125</h1>
-                  </div>
-                      <div class="fill-remaining-space"></div>
-                      <p class="profileName">2🥈</p>
-                  </div>
-
-
-                  <div class="profileView profileViewFiend">
-                    <img class="profileImage youreProfileImage"  src="https://cdn.discordapp.com/attachments/730141789490512005/1107589808135606343/blank-profile-pic.png" alt="">
-                    <div class="profileText">
-                        <p class="profileName friendProfileName">friendNickName</p>
-                        <h1 class="profileRaiting friendProfileRaiting">1125</h1>
-                    </div>        
-                        <div class="fill-remaining-space"></div>
-                        <p class="profileName">3🥉</p>
-                    </div>
+            <?php
+             $index = 0;
+             $emojis = array("🥇","🥈","🥉"," ");
+                  if ($result !== false)
+                   {
+                       while($row = $result->fetch_assoc()) {
+                        $index++;
+                        echo "<div class='profileView profileViewFiend'>";
+                        echo "<img class='profileImage youreProfileImage'src='{$row['ImgLink']}'>";
+                        echo "<div class='profileText'>";
+                        echo  "<p class='profileName friendProfileName'>{$row['Name']}</p>";
+                        echo   "<h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']}</h1>";
+                        echo "</div>";
+                        echo "<div class='fill-remaining-space'></div>";
+                        echo "<p class='profileName'>{$emojis[($index>3?3:$index-1)]} {$index} </p>";
+                        echo "</div>"; 
+                     }
+                   }
+                   $result->free();
+            ?>
 
 
               </div>

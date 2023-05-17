@@ -3,7 +3,7 @@
   require_once 'sqlConnect.php';
     
 
-
+  
      if($_POST['logIn'] == "yes")
      {    
             $result = $connect->query("SELECT `Password` FROM `Acounts` WHERE `Name` = '{$_POST['name']}'");
