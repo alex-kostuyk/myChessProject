@@ -2,7 +2,7 @@
 	
   require_once 'sqlConnect.php';
     
-
+  session_start();
   
      if($_POST['logIn'] == "yes")
      {    
@@ -25,6 +25,8 @@
                       else
                       {
                          echo "password correct";
+                         $_SESSION['mainUser'] = $_POST['name'];
+                         $_SESSION['anotherUser'] ='';
                       }
 
                   }
@@ -48,7 +50,8 @@
             if ($result !== false)
             {
                echo "account created";
-                     
+               $_SESSION['mainUser'] = $_POST['name'];
+               $_SESSION['anotherUser'] ='';
             }
           else{
               echo "error!";

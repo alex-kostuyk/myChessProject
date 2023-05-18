@@ -40,7 +40,8 @@
               <li><a href="profileView.php">profile</a></li>
               <li><a href="leaderBoard.php">leaderboard</a></li>
               <li><a href="FindNewFriend.php">find new friend</a></li>
-              <li><a href="authorization.html">log in</a></li>
+              <li id="logIn"><a href="authorization.html">log in</a></li>
+              <li id="logOut"><a onclick="LogOut()">log out</a></li>
             </div>
           </div>
         </div>
@@ -64,11 +65,12 @@
                    {
                        while($row = $result->fetch_assoc()) {
                         $index++;
+                        $stringName = $row['Name'];
                         echo "<div class='profileView profileViewFiend'>";
-                        echo "<img class='profileImage youreProfileImage'src='{$row['ImgLink']}'>";
+                        echo "<img class='profileImage youreProfileImage'src='{$row['ImgLink']}' onclick='OpenProfile(\"$stringName\")'>";
                         echo "<div class='profileText'>";
-                        echo  "<p class='profileName friendProfileName'>{$row['Name']}</p>";
-                        echo   "<h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']}</h1>";
+                        echo  "<p class='profileName friendProfileName'onclick='OpenProfile(\"$stringName\")'>{$row['Name']}</p>";
+                        echo   "<h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']} elo</h1>";
                         echo "</div>";
                         echo "<div class='fill-remaining-space'></div>";
                         echo "<p class='profileName'>{$emojis[($index>3?3:$index-1)]} {$index} </p>";
@@ -107,11 +109,13 @@
         <li class="menu__item"><a class="menu__link" href="profileView.php">profile</a></li>
         <li class="menu__item"><a class="menu__link" href="leaderBoard.php">leaderboard</a></li>
       <li class="menu__item"><a class="menu__link"  href="FindNewFriend.php">find new friend</a></li>
-        <li class="menu__item"><a class="menu__link" href="authorization.html">log in</a></li>
+        <li class="menu__item" id="logIn"><a class="menu__link" href="authorization.html">log in</a></li>
+        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" href="authorization.html">log out</a>
     
       </ul>
       <p>&copy;2023 | All Rights Reserved</p>
     
 
+      <script src="js\menu\profiles.js"></script>
   <script src="js/menu/footer.js"></script>
 </html>

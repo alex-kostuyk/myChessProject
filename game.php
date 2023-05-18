@@ -30,7 +30,9 @@
               <li><a href="profileView.php">profile</a></li>
               <li><a href="leaderBoard.php">leaderboard</a></li>
               <li><a href="FindNewFriend.php">find new friend</a></li>
-              <li><a href="authorization.html">log in</a></li>
+              
+              <li id="logIn"><a href="authorization.html">log in</a></li>
+              <li id="logOut"><a onclick="LogOut()">log out</a></li>
             </div>
           </div>
         </div>
@@ -213,7 +215,9 @@
       <li class="menu__item"><a class="menu__link" href="profileView.php">profile</a></li>
       <li class="menu__item"><a class="menu__link" href="leaderBoard.php">leaderboard</a></li>
       <li class="menu__item"><a class="menu__link"  href="FindNewFriend.php">find new friend</a></li>
-      <li class="menu__item"><a class="menu__link" href="authorization.html">log in</a></li>
+      <li class="menu__item" id="logIn"><a class="menu__link" href="authorization.html">log in</a></li>
+        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" href="authorization.html">log out</a>
+        <script src="js\menu\profiles.js"></script>
   
     </ul>
     <p>&copy;2023 | All Rights Reserved</p>
