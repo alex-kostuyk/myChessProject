@@ -216,7 +216,7 @@
       <li class="menu__item"><a class="menu__link" href="leaderBoard.php">leaderboard</a></li>
       <li class="menu__item"><a class="menu__link"  href="FindNewFriend.php">find new friend</a></li>
       <li class="menu__item" id="logIn"><a class="menu__link" href="authorization.html">log in</a></li>
-        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" href="authorization.html">log out</a>
+        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" >log out</a>
         <script src="js\menu\profiles.js"></script>
   
     </ul>

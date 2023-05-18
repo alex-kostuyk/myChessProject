@@ -10,7 +10,7 @@
       header("Location: authorization.html");
       die();
     }
-    $result = $connect->query("SELECT `Name`,`Rating`,`ImgLink`,`ConnectedDay` FROM `acounts` WHERE `Name`= '{$profileName}' limit 1");
+    $result = $connect->query("SELECT `Name`,`Rating`,`ImgLink`,`ConnectedDay` FROM `Acounts` WHERE `Name`= '{$profileName}' limit 1");
     
 ?>
 <!DOCTYPE html>
@@ -90,7 +90,7 @@
 
             <?php
               $index=0;
-              $result = $connect->query("SELECT  acounts.Name,acounts.Rating,acounts.ImgLink FROM Friends INNER JOIN Acounts ON friends.FrendName = acounts.Name WHERE friends.Name = '{$profileName}' ORDER by acounts.Rating DESC");
+              $result = $connect->query("SELECT  Acounts.Name,Acounts.Rating,Acounts.ImgLink FROM Friends INNER JOIN Acounts ON Friends.FrendName = Acounts.Name WHERE Friends.Name = '{$profileName}' ORDER by Acounts.Rating DESC");
                   if ($result !== false)
                    {
                        while($row = $result->fetch_assoc()) {
@@ -141,7 +141,7 @@
         <li class="menu__item"><a class="menu__link" href="leaderBoard.php">leaderboard</a></li>
       <li class="menu__item"><a class="menu__link"  href="FindNewFriend.php">find new friend</a></li>
       <li class="menu__item" id="logIn"><a class="menu__link" href="authorization.html">log in</a></li>
-        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" href="authorization.html">log out</a>
+        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" >log out</a>
         <script src="js\menu\profiles.js"></script>
     
       </ul>

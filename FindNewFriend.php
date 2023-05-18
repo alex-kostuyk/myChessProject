@@ -1,7 +1,7 @@
 <?php
     require_once 'php/sqlConnect.php';
     session_start();
-    $result = $connect->query("SELECT Name, Rating , ImgLink FROM acounts WHERE Name NOT IN (SELECT FrendName FROM friends WHERE name = '{$_SESSION['mainUser']}') && Name!='{$_SESSION['mainUser']}' limit 8");
+    $result = $connect->query("SELECT Name, Rating , ImgLink FROM Acounts WHERE Name NOT IN (SELECT FrendName FROM Friends WHERE name = '{$_SESSION['mainUser']}') && Name!='{$_SESSION['mainUser']}' limit 8");
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +118,7 @@
         <li class="menu__item"><a class="menu__link" href="leaderBoard.php">leaderboard</a></li>
       <li class="menu__item"><a class="menu__link"  href="FindNewFriend.php">find new friend</a></li>
       <li class="menu__item" id="logIn"><a class="menu__link" href="authorization.html">log in</a></li>
-        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" href="authorization.html">log out</a>
+        <li class="menu__item"id="logOut"><a onclick="LogOut()" class="menu__link" >log out</a>
         <script src="js\menu\profiles.js"></script>
       </ul>
       <p>&copy;2023 | All Rights Reserved</p>
