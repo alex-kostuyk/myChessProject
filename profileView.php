@@ -2,6 +2,7 @@
     session_start();
     require_once 'php/sqlConnect.php';
 
+    $isMainUser = "true";
     
     $profileName = $_SESSION['anotherUser']==''||$_SESSION['anotherUser']==null?$_SESSION['mainUser']:$_SESSION['anotherUser'];
     $_SESSION['anotherUser'] = '';
@@ -10,23 +11,26 @@
       header("Location: authorization.html");
       die();
     }
+    else if($profileName!=$_SESSION['mainUser'])
+    {
+        $isMainUser = "false";
+    }
     $result = $connect->query("SELECT `Name`,`Rating`,`ImgLink`,`ConnectedDay` FROM `Acounts` WHERE `Name`= '{$profileName}' limit 1");
     
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     
     
 <head>
     <meta charset="UTF-8">
-   
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/main.css">
      <link rel="stylesheet" href="css/navBar.css">
      <link rel="stylesheet" href="css/footer.css">
      <link rel="stylesheet" href="css/profile.css">
     <link rel="icon" src = "https://cdn.discordapp.com/attachments/730141789490512005/1106270037393805424/wp.png">
-  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Chess project</title>
    </head>
@@ -73,7 +77,6 @@
               <h1 class='titleTime youreProfileRaiting'>{$row['Rating']} elo</h1>
           </div>
           <div class='fill-remaining-space'></div>
-          <img class='icon' src='https://cdn.discordapp.com/attachments/730141789490512005/1108166099276660758/White_pencil.png' alt=''>
           
       </div>
       <h1 class='titleTime dataRegistration'>{$row['ConnectedDay']}</h1>";
@@ -95,13 +98,15 @@
                    {
                        while($row = $result->fetch_assoc()) {
                         $index++;
-                        echo "<div class='profileView profileViewFiend'>";
-                        echo "<img class='profileImage youreProfileImage'src='{$row['ImgLink']}' onclick='OpenProfile(\"{$row['Name']}\")'>";
-                        echo "<div class='profileText'>";
-                        echo  "<p class='profileName friendProfileName' onclick='OpenProfile(\"{$row['Name']}\")'>{$row['Name']}</p>";
-                        echo   "<h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']} elo</h1>";
-                        echo "</div>";
-                        echo "</div>"; 
+                        echo "<div class='profileView profileViewFiend'>
+                            <img class='profileImage youreProfileImage'src='{$row['ImgLink']}' onclick='OpenProfile(\"{$row['Name']}\")'>
+                            <div class='profileText'>
+                             <p class='profileName friendProfileName' onclick='OpenProfile(\"{$row['Name']}\")'>{$row['Name']}</p>
+                             <h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']} elo</h1>
+                           </div>
+                              <div class='fill-remaining-space'></div>
+                              <button class='buttonStyle1 deleteButton' onclick='deleteFriend(\"{$row['Name']}\")'>x</button>
+                          </div>"; 
                      }
                      if($index==0)
                      {
@@ -110,13 +115,24 @@
                    }
                    $result->free();
             ?>
+               <script>
+                    let isMainUser= <?php echo $isMainUser; ?>;
+                    if(!isMainUser)
+                    {
+                      const buttons = document.querySelectorAll('.deleteButton');
 
+                      buttons.forEach(element => {
+                          element.style.display = "none"
+                      });
+                    }
+                </script>
 
               </div>
           </div>
           </div>
     </div>
-    <div id = "void"></div>
+    <div id = "void"></div> 
+     
 </body>
 <div class="footerContainer">
 <footer class="footer">
@@ -150,4 +166,5 @@
     </footer> 
     <script src="js/menu/footer.js"></script>
   </div>
+
 </html>

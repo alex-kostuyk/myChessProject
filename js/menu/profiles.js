@@ -1,13 +1,14 @@
 let logIn = document.querySelectorAll('#logIn');
 let logOut = document.querySelectorAll('#logOut');
-let isAuthorized = sessionStorage.getItem("yourName")!=undefined;
+let mainUserName = sessionStorage.getItem("yourName");
+let isAuthorized = mainUserName!=undefined;
+
 for(let i=0;i<logIn.length;i++){
     if(isAuthorized)
         logIn[i].style.display = "none";
      else
         logOut[i].style.display = "none";
 }
-
 function OpenProfile(value)
 {
     let formData = new URLSearchParams();
@@ -28,7 +29,7 @@ function addFriend(value){
         return;
     let formData = new URLSearchParams();
     formData.append("addFriend", "yes");
-    formData.append("playerName", sessionStorage.getItem("yourName"));
+    formData.append("playerName", mainUserName);
     formData.append("friendName", value);
     SaveToSession(formData);
     wasPressed = true;
@@ -36,11 +37,10 @@ function addFriend(value){
 
 
 function deleteFriend(value){
-   if(!isAuthorized)
-        return;
+
     let formData = new URLSearchParams();
     formData.append("deleteFriend", "yes");
-    formData.append("playerName", sessionStorage.getItem("yourName"));
+    formData.append("playerName", mainUserName);
     formData.append("friendName", value);
     SaveToSession(formData);
     wasPressed = true;
@@ -66,7 +66,6 @@ function SaveToSession(formData){
             window.location.href = 'authorization.html';
           if(data=="deleted")
             window.location.href = 'profileView.php';   
-
         })
         .catch(function (error) {
             console.log(error);
