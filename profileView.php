@@ -105,7 +105,7 @@
                              <h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']} elo</h1>
                            </div>
                               <div class='fill-remaining-space'></div>
-                              <button class='buttonStyle1 deleteButton' onclick='deleteFriend(\"{$row['Name']}\")'>x</button>
+                              <button class='buttonStyle1 deleteButton' onclick='deleteFriend(\"{$row['Name']}\")'>🗑️</button>
                           </div>"; 
                      }
                      if($index==0)

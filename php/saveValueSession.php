@@ -30,5 +30,10 @@
         echo "deleted";
     }
 
+    if($_POST['search']=="yes")
+    {
+        $_SESSION['searchUser'] = $_POST['searchName'];
+        echo "searched";
+    }
    
 ?>

@@ -1,7 +1,13 @@
 <?php
     require_once 'php/sqlConnect.php';
     session_start();
-    $result = $connect->query("SELECT Name, Rating , ImgLink FROM Acounts WHERE Name NOT IN (SELECT FrendName FROM Friends WHERE name = '{$_SESSION['mainUser']}') && Name!='{$_SESSION['mainUser']}' limit 8");
+    $result = $connect->query("SELECT Name, Rating , ImgLink FROM Acounts WHERE Name NOT IN (SELECT FrendName FROM Friends WHERE Name = '{$_SESSION['mainUser']}') && Name!='{$_SESSION['mainUser']}' && Name LIKE '%{$_SESSION['searchUser']}%' limit 10");
+
+    if (isset($_SESSION['searchUser']))
+    {
+      unset($_SESSION['searchUser']);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +64,8 @@
       <div class="friendsListView">
 
         <div class="buttonContainerRow searchContainer">
-          <input type="text" class="formSearch" placeholder="search for profile">
-          <button class="buttonStyle1">🔍</button>
+          <input type="text" class="formSearch" id="searchBar" placeholder="search for profile">
+          <button class="buttonStyle1" onclick='search()'>🔍</button>
           </div>
 
           <h1 class="titleTime">👤 Profiles:</h1>
@@ -67,7 +73,6 @@
             
             <?php
              $index = 0;
-             $emojis = array("🥇","🥈","🥉"," ");
                   if ($result !== false)
                    {
                        while($row = $result->fetch_assoc()) {
@@ -80,7 +85,7 @@
                            <h1 class='profileRaiting friendProfileRaiting'>{$row['Rating']} elo</h1>
                         </div>
                         <div class='fill-remaining-space'></div>
-                         <button class='buttonStyle1 addButton' onclick='addFriend(\"$stringName\")'>+</button>
+                         <button class='buttonStyle1 addButton' onclick='addFriend(\"$stringName\")'>+👤</button>
                               </div>"; 
                      }
                    }

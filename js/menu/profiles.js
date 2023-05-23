@@ -1,5 +1,6 @@
 let logIn = document.querySelectorAll('#logIn');
 let logOut = document.querySelectorAll('#logOut');
+let searchBar = document.getElementById('searchBar');
 let mainUserName = sessionStorage.getItem("yourName");
 let isAuthorized = mainUserName!=undefined;
 
@@ -46,6 +47,13 @@ function deleteFriend(value){
     wasPressed = true;
 }
 
+function search(){
+    let formData = new URLSearchParams();
+    formData.append("search", "yes");
+    formData.append("searchName", searchBar.value);
+    SaveToSession(formData);
+}
+
 
 function SaveToSession(formData){
     
@@ -60,12 +68,13 @@ function SaveToSession(formData){
         .then(function (data) {
             if(data=="view")
             window.location.href = 'profileView.php';
-           if(data=="added")
+           if(data=="added"||data=="searched")
           window.location.href = 'FindNewFriend.php';
           if(data=="destroyed")
             window.location.href = 'authorization.html';
           if(data=="deleted")
-            window.location.href = 'profileView.php';   
+            window.location.href = 'profileView.php'; 
+
         })
         .catch(function (error) {
             console.log(error);
