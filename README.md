@@ -36,7 +36,8 @@ Installation
     
     ```bashCopy code
     
-    `git clone https://github.com/yourusername/js-chess-php-integration.git`
+    `git clone https://github.com/alex-kostuyk/myChessProject.git`
+    
 
     ```
     
